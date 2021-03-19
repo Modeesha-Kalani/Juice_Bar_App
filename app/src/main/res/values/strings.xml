@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">SLIIT</string>
+    <string name="add">ADD ORDER</string>
+    <string name="juice_name">Strawberry Juice</string>
+    <string name="ingredients">Ingredients:</string>
+    <string name="ingre_list">Strawberries, Cold Water,Ice Cubes, Lime</string>
+    <string name="quantity">Quantity:</string>
+    <string name="size">Select The Price Type</string>
+    <string name="time">Take away Time: </string>
+    <string name="cust_comment">Options</string>
+    <string name="comment">*Prices can be changeable</string>
+    <string name="btn">Place Order</string>
+    <string name="btn2">Select Price </string>
+    <string name="btn7">Select Options</string>
+    <string name="radioBtn1">With Ice Cream</string>
+    <string name="radioBtn2">Without Ice Cream</string>
+    <string name="amount">Total Amount</string>
+
+    //view order
+    <string name="view">VIEW ORDER</string>
+    <string name="size1">Price Type: </string>
+    <string name="order">Order No:</string>
+    <string name="orderNo"> </string>
+    <string name="btn3">Update</string>
+    <string name="btn4">Cancle</string>
+    //Order History
+    <string name="history"> ORDER HISTORY</string>
+    <string name="juice_name1">Orange Juice</string>
+    <string name="juice_name2">Apple Juice</string>
+    <string name="juice_name3">Avacado Juice</string>
+
+    //Home
+    <string name="btn5">ORDER NEW</string>
+    <string name="btn6">ORDER HISTORY</string>
+
+</resources>
