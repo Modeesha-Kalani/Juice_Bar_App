@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">FRUZO</string>
+    <string name="add_menu_button_text">ADD MENU</string>
+    <string name="add_admin_button_text">ADD ADMINS</string>
+    <string name="view_menu_button_text">VIEW MENU</string>
+    <string name="view_admin_button_text">VIEW ADMINS</string>
+    <string name="admin_text">ADMIN</string>
+    <string name="registration_text">REGISTRATION</string>
+    <string name="user_info_text">USER INFO</string>
+    <string name="first_name_button_text">First Name</string>
+    <string name="last_name_button_text">Last Name</string>
+    <string name="full_name_button_text">Full Name</string>
+    <string name="NIC_button_text">NIC</string>
+    <string name="email_button_text">E-mail</string>
+    <string name="phone_number_button_text">Phone Number</string>
+    <string name="Admin_role">Admin Role</string>
+    <string name="Login_text">LOGIN INFO</string>
+    <string name="username_text">User Name</string>
+    <string name="Password_button">Password</string>
+    <string name="Retype_text">Re-type Password</string>
+    <string name="add_now_button_text">ADD NOW</string>
+    <string name="admin_list_text">ADMIN LIST</string>
+    <string name="name1_text">Thilanka Perera</string>
+    <string name="job1_text">Owner</string>
+    <string name="name2_text">Akalanka Silva</string>
+    <string name="job2_text">Manager</string>
+    <string name="view1_text">View Details</string>
+    <string name="delete1_text">Delete</string>
+    <string name="view2_text">View Details</string>
+    <string name="delete2_text">Delete</string>
+    <string name="next_page_text">NEXT PAGE</string>
+
+</resources>
