@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FRUZO</string>
+    <string name="order_button_text">ORDER PRODUCT</string>
+    <string name="table_button_text">RESERVE TABLE</string>
+</resources>
