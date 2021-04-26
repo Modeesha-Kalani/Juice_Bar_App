@@ -5,7 +5,7 @@
     <string name="ingredients">Ingredients:</string>
     <string name="ingre_list">Strawberries, Cold Water,Ice Cubes, Lime</string>
     <string name="quantity">Quantity:</string>
-    <string name="size">Select The Price Type</string>
+    <string name="size"> Price Type</string>
     <string name="time">Take away Time: </string>
     <string name="cust_comment">Options</string>
     <string name="comment">*Prices can be changeable</string>
@@ -22,7 +22,7 @@
     <string name="order">Order No:</string>
     <string name="orderNo"> </string>
     <string name="btn3">Update</string>
-    <string name="btn4">Cancle</string>
+    <string name="btn4">Delete</string>
     //Order History
     <string name="history"> ORDER HISTORY</string>
     <string name="juice_name1">Orange Juice</string>
@@ -33,4 +33,17 @@
     <string name="btn5">ORDER NEW</string>
     <string name="btn6">ORDER HISTORY</string>
 
+    //Spinner1
+    <string-array name="prices">
+        <item>Select Price</item>
+        <item>Regular</item>
+        <item>Large</item>
+    </string-array>
+
+    //Spinner2
+    <string-array name="options">
+        <item>Select Options</item>
+        <item>With Ice Cream</item>
+        <item>Without Ice Cream</item>
+    </string-array>
 </resources>
