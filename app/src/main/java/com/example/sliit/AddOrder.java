@@ -31,16 +31,7 @@ public class AddOrder extends AppCompatActivity implements  AdapterView.OnItemSe
         mySpinner2.setAdapter(adapter);
         mySpinner2.setOnItemSelectedListener(this);
 
-      /*  ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(AddOrder.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.prices));
-        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner.setAdapter(myAdapter);
 
-      mySpinner2 = (Spinner) findViewById(R.id.mySpinner2);
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(AddOrder.this,
-                android.R.layout.simple_list_item_2, getResources().getStringArray(R.array.options));
-        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner2.setAdapter(myAdapter2); */
     }
 
     @Override
