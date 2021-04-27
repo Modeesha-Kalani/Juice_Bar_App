@@ -46,4 +46,15 @@
         <item>With Ice Cream</item>
         <item>Without Ice Cream</item>
     </string-array>
+
+    //Recycler View
+
+    <string-array name="history">
+        <item>Strawberry Juice</item>
+        <item>Avacado Juice</item>
+        <item>Orange Juice</item>
+        <item>Lime Juice</item>
+
+</string-array>
+
 </resources>

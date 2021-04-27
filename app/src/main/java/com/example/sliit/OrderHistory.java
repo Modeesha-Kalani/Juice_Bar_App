@@ -1,6 +1,8 @@
 package com.example.sliit;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,22 +12,22 @@ import android.widget.Button;
 
 public class OrderHistory extends AppCompatActivity {
 
-    private Button button2;
+    String h1[];
+    int images[] = {R.drawable.strawberry,R.drawable.avacado,R.drawable.orange,R.drawable.lime};
+    RecyclerView recyclerView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_history);
 
-        button2 = (Button) findViewById(R.id.button2);
+        recyclerView = findViewById(R.id.recyclerView);
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent int3 = new Intent(OrderHistory.this, ViewOrder.class);
-                startActivity(int3);
-            }
-        });
+       h1 = getResources().getStringArray(R.array.history);
+
+        myRecyclerAdapter  MyRecyclerAdapter = new myRecyclerAdapter(this, h1, images);
+        recyclerView.setAdapter(MyRecyclerAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
     }

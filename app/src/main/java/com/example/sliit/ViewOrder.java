@@ -7,12 +7,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ViewOrder extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
     private Button btn2, btn3;
     Spinner mySpinner3, mySpinner4;
+    ImageView imageView15;
+    TextView textView22;
+
+    String data1;
+    int myImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +39,25 @@ public class ViewOrder extends AppCompatActivity implements AdapterView.OnItemSe
         mySpinner4.setAdapter(adapter);
         mySpinner4.setOnItemSelectedListener(this);
 
+        imageView15 =  findViewById(R.id.imageView15);
+        textView22 = findViewById(R.id.textView22);
+
+        getData();
+        setData();
+    }
+    private void getData(){
+        if(getIntent().hasExtra("myImage") && getIntent().hasExtra("data1")){
+                data1 = getIntent().getStringExtra("data1");
+                myImage = getIntent().getIntExtra("myImage", 1);
+        }else{
+            Toast.makeText(this, "No Data", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private void setData(){
+        textView22.setText(data1);
+        imageView15.setImageResource(myImage);
     }
 
     @Override

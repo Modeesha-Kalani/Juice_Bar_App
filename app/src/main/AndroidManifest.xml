@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SLIIT">
-        <activity android:name=".ViewOrder"></activity>
+        <activity android:name=".ViewOrder"
+            android:parentActivityName=".OrderHistory"/>
 
-        <activity android:name=".OrderHistory" />
+        <activity android:name=".OrderHistory"
+            android:parentActivityName=".MainActivity"/>
 
-        <activity android:name=".AddOrder" />
+        <activity android:name=".AddOrder"
+            android:parentActivityName=".MainActivity"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>
