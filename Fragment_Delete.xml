@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/deleteback"
+    tools:context=".delete_reservation" >
+
+    <Button
+        android:id="@+id/CancelDELETE"
+        android:layout_width="350dp"
+        android:layout_height="71dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/no"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="454dp" />
+
+    <Button
+        android:id="@+id/DELETE"
+        android:layout_width="350dp"
+        android:layout_height="71dp"
+        android:backgroundTint="@color/pink"
+        android:text="@string/yes"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="364dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
