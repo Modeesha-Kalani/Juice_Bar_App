@@ -8,13 +8,28 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+
+import java.sql.Time;
 
 public class AddOrder extends AppCompatActivity implements  AdapterView.OnItemSelectedListener, View.OnClickListener {
 
        private Button btn;
        Spinner mySpinner, mySpinner2;
+
+       EditText etQuantity, tTime;
+       AddOrderDetails aod;
+       DatabaseReference dbReference;
+
+       private void clearControls(){
+           etQuantity.setText("");
+           tTime.setText("");
+       }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

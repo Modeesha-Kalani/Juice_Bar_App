@@ -46,7 +46,7 @@ public class ViewOrder extends AppCompatActivity implements AdapterView.OnItemSe
         setData();
     }
     private void getData(){
-        if(getIntent().hasExtra("myImage") && getIntent().hasExtra("data1")){
+        if(getIntent().hasExtra("myImageView") && getIntent().hasExtra("data1")){
                 data1 = getIntent().getStringExtra("data1");
                 myImage = getIntent().getIntExtra("myImage", 1);
         }else{

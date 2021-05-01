@@ -37,27 +37,29 @@ public class myRecyclerAdapter extends RecyclerView.Adapter<myRecyclerAdapter.My
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(context, ViewOrder.class);
+               Intent intent = new Intent(context, SecondActivity.class);
                intent.putExtra("data1", data1[position]);
-               intent.putExtra("imgView", images[position]);
+               intent.putExtra("myImage", images[position]);
                context.startActivity(intent);
             }
         });
     }
 
     @Override
-    public int getItemCount() {
-        return data1.length;
+    public int getItemCount()
+    {
+        return images.length;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView myText1;
         ImageView myImage;
         ConstraintLayout mainLayout;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            myText1 = itemView.findViewById(R.id.history_txt);
-            myImage = itemView.findViewById(R.id.imgView);
+            myText1 = itemView.findViewById(R.id.myText1);
+            myImage = itemView.findViewById(R.id.myImageView);
             mainLayout = itemView.findViewById(R.id.mainLayout);
         }
     }
