@@ -9,11 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SLIIT">
-        <activity android:name=".SecondActivity"
-            android:parentActivityName=".OrderHistory"/>
+        <activity android:name=".DeleteOrder"></activity>
         <activity
-            android:name=".ViewOrder"
-             />
+            android:name=".SecondActivity"
+            android:parentActivityName=".OrderHistory" />
+        <activity android:name=".ViewOrder" />
         <activity
             android:name=".OrderHistory"
             android:parentActivityName=".MainActivity" />
