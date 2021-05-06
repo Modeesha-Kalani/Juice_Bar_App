@@ -23,10 +23,8 @@ public class AdminMenuActivity extends AppCompatActivity {
     }
 
     public void addMenu(View view) {
-        startActivity(new Intent(this,AddProductActivity.class));
     }
 
     public void viewMenu(View view) {
-        startActivity(new Intent(this,ViewProductAdminActivity.class));
     }
 }
