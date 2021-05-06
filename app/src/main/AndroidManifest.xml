@@ -17,7 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FruzoRest">
-        <activity android:name=".ProductCViewActivity"></activity>
+        <activity android:name=".ProductViewCustomerActivity" />
+        <activity android:name=".ProductCViewActivity" />
         <activity android:name=".ViewProductAdminActivity" />
         <activity android:name=".EditProductActivity" />
         <activity android:name=".ViewProductsAdminActivity" />

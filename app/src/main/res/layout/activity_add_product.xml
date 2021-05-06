@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".AddProductActivity">
 
     <ScrollView
@@ -14,10 +15,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/ap_img"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -45,25 +46,27 @@
                 android:text="@string/producttype" />
 
             <RadioGroup
+                android:id="@+id/ap_radiogroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp">
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/ap_rbjuice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:checked="true"
                     android:text="@string/juice" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/ap_rbsalad"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/salad" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/ap_rbsmoothi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/smoothie" />
@@ -76,7 +79,7 @@
                 android:text="@string/productname" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/ap_pname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -102,7 +105,7 @@
                     android:text="@string/regular" />
 
                 <EditText
-                    android:id="@+id/editTextNumberDecimal"
+                    android:id="@+id/ap_regprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -123,7 +126,7 @@
                     android:text="@string/large" />
 
                 <EditText
-                    android:id="@+id/editTextNumberDecimal2"
+                    android:id="@+id/ap_largeprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -138,7 +141,7 @@
                 android:text="@string/ingredients" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine"
+                android:id="@+id/ap_ingredients"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -150,7 +153,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/addproduct" />
+                android:text="@string/addproduct"
+                android:onClick="addProduct"/>
 
         </LinearLayout>
     </ScrollView>

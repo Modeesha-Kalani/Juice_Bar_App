@@ -16,16 +16,19 @@ public class ProductHomeActivity extends AppCompatActivity {
 
     public void viewJuices(View view) {
         Intent i = new Intent(this, ProductCViewActivity.class);
+        i.putExtra("type","juice");
         startActivity(i);
     }
 
     public void viewSalads(View view) {
         Intent i = new Intent(this, ProductCViewActivity.class);
+        i.putExtra("type","salad");
         startActivity(i);
     }
 
     public void viewSmoothis(View view) {
         Intent i = new Intent(this, ProductCViewActivity.class);
+        i.putExtra("type","smoothi");
         startActivity(i);
     }
 }

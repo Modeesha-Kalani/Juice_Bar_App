@@ -59,4 +59,9 @@
     <string name="regularprice">Regular Price</string>
     <string name="largeprice">Large Price</string>
     <string name="update">Update</string>
+    <string name="price">Price</string>
+    <string name="rs">Rs.</string>
+    <string name="selectqty">Select Quantity</string>
+    <string name="takeawaytime">Take Away Time</string>
+    <string name="placeorder">Place Order</string>
 </resources>
