@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "650392437416",
+    "project_id": "fruzorest",
+    "storage_bucket": "fruzorest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650392437416:android:7f69bf064eba9dadd2389d",
+        "android_client_info": {
+          "package_name": "com.example.fruzorest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650392437416-b95vrbtrbag72b4v532h7tbs1b3frp5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgGhma2c3Ku574lATVj_pyX8tPY8IOQLE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650392437416-b95vrbtrbag72b4v532h7tbs1b3frp5j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
