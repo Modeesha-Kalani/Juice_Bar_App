@@ -62,6 +62,11 @@
     <string name="price">Price</string>
     <string name="rs">Rs.</string>
     <string name="selectqty">Select Quantity</string>
-    <string name="takeawaytime">Take Away Time</string>
-    <string name="placeorder">Place Order</string>
+
+    <string name="orderdetail">Order Detail</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="qtydetail">Quantity Details</string>
+    <string name="total">Total</string>
+
 </resources>

@@ -23,10 +23,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class ProductViewCustomerActivity extends AppCompatActivity {
-    private String productid,ptype;
+    private String productid, ptype;
     private ImageView imageView;
     private TextView name, regprice, largeprice, ingredients;
-    private Product p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,7 @@ public class ProductViewCustomerActivity extends AppCompatActivity {
         largeprice = findViewById(R.id.pv_largeprice);
         ingredients = findViewById(R.id.pv_ingredients);
 
-        loadProductDetails(productid,ptype);
+        loadProductDetails(productid, ptype);
 
 
     }
@@ -54,8 +53,8 @@ public class ProductViewCustomerActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Product value = snapshot.getValue(Product.class);
                 name.setText(value.getName());
-                regprice.setText(value.getReg_price()+"");
-                largeprice.setText(value.getLarge_price()+"");
+                regprice.setText(value.getReg_price() + "");
+                largeprice.setText(value.getLarge_price() + "");
                 ingredients.setText(value.getIngredients());
                 StorageReference products1 = FirebaseStorage.getInstance().getReference("products").child(value.getId());
                 products1.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
@@ -74,8 +73,5 @@ public class ProductViewCustomerActivity extends AppCompatActivity {
 
     }
 
-    public void goToOrderNow(View view) {
-        Intent i = new Intent(this, OrderPlaceActivity.class);
-        startActivity(i);
-    }
+    
 }

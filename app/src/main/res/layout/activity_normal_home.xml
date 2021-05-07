@@ -14,14 +14,22 @@
         android:id="@+id/button20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/orderjuice"
-        android:onClick="viewProductHome"/>
+        android:layout_marginTop="10dp"
+        android:onClick="viewProductHome"
+        android:text="@string/orderjuice" />
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/orderhistory"
+        android:onClick="goToOrderHistory"/>
 
     <Button
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/reservetable" />
 </LinearLayout>

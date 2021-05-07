@@ -17,4 +17,6 @@ public class NormalHome extends AppCompatActivity {
     public void viewProductHome(View view) {
         startActivity(new Intent(this,ProductHomeActivity.class));
     }
+
+
 }

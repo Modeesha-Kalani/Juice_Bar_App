@@ -52,7 +52,6 @@ public class ProductCViewActivity extends AppCompatActivity {
                 Iterable<DataSnapshot> children = snapshot.getChildren();
                 for (DataSnapshot snap : children) {
                     Product value = snap.getValue(Product.class);
-                    System.out.println(value.getName());
                     ProductInfo info = new ProductInfo();
                     info.setProduct(value);
                     //load Image
