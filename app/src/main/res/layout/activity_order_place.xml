@@ -118,8 +118,8 @@
 
                     <Button
                         android:id="@+id/decrease"
-                        android:layout_width="45dp"
-                        android:layout_height="36dp"
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
                         android:onClick="minRegQty"
                         android:text="-" />
 
