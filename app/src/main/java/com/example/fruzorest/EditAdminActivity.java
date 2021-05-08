@@ -120,6 +120,7 @@ public class EditAdminActivity extends AppCompatActivity {
     }
 
     public void updateInfo(View view) {
+        showProgressDialog();
         DatabaseReference child = FirebaseDatabase.getInstance()
                 .getReference("user")
                 .child("allusers")

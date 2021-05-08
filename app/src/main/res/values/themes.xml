@@ -13,13 +13,28 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="DatepickerDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <!--&lt;!&ndash; Used for the buttons &ndash;&gt;-->
-        <!--<item name="colorAccent">@color/colorAccent</item>-->
-        <!--&lt;!&ndash;<item name="android:textColorPrimary">@color/wetasphalt</item>&ndash;&gt;-->
-        <!--<item name="android:textColorSecondary">@color/carrot</item>-->
-        <!--<item name="android:titleTextAppearance">@style/titleback</item>-->
-        <!--<item name="android:textAppearanceMedium">@color/sunflower</item>-->
+    <style name="DatepickerDialogCustom" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/wetasphalt</item>
+        <item name="android:textColorPrimary">@color/wetasphalt</item>
+        <item name="android:textColorSecondary">@color/carrot</item>
+<!--        <item name="android:titleTextAppearance">@style/titleback</item>-->
+        <item name="android:textAppearanceMedium">@color/sunflower</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DatePickerButtonStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/DatePickerButtonStyle</item>
         <!-- Used for the title and text -->
+    </style>
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/midnightblue</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="DatePickerButtonStyle" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/wetasphalt</item>
+        <item name="android:backgroundTint">@color/white</item>
     </style>
 </resources>

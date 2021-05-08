@@ -50,6 +50,8 @@ public class AddAdminActivity extends AppCompatActivity {
 
     private InputStream tempuri;
 
+    private boolean selectimg;
+
     //Firebase
     FirebaseDatabase firebase;
 
@@ -83,8 +85,8 @@ public class AddAdminActivity extends AppCompatActivity {
                 password.getText().toString().isEmpty() ||
                 repassword.getText().toString().isEmpty() ||
                 nic.getText().toString().isEmpty() ||
-                adminrole.getText().toString().isEmpty()||
-                fname.getText().toString().isEmpty()||
+                adminrole.getText().toString().isEmpty() ||
+                fname.getText().toString().isEmpty() ||
                 lname.getText().toString().isEmpty()) {
 //check values
             hideProgressDialog();
@@ -100,6 +102,19 @@ public class AddAdminActivity extends AppCompatActivity {
             }).setIcon(R.drawable.ic_baseline_error_outline_24);
             builder.create().show();
 
+        } else if (!selectimg) {
+            hideProgressDialog();
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddAdminActivity.this, R.style.Theme_AppCompat_Dialog_MinWidth);
+            builder.setTitle("Cannot Create User Account");
+            builder.setMessage("Select User Image").setCancelable(false);
+            builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    hideProgressDialog();
+                }
+            }).setIcon(R.drawable.ic_baseline_error_outline_24);
+            builder.create().show();
         } else {
             if (password.getText().toString().equals(repassword.getText().toString())) {
                 User user = new User();
@@ -189,6 +204,7 @@ public class AddAdminActivity extends AppCompatActivity {
                 System.out.println("image selected");
                 imageView.setImageURI(null);
                 imageView.setImageURI(r.getUri());
+                selectimg = true;
 
                 try {
                     tempuri = getApplicationContext().getContentResolver().openInputStream(r.getUri());

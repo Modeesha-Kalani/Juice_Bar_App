@@ -17,13 +17,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FruzoRest">
+        <activity android:name=".ReservationManageActivity"></activity>
+        <activity android:name=".ReservationDoneActivity" />
+        <activity android:name=".ViewReservationActivity" />
+        <activity android:name=".AddReservationActivity" android:label="Add Reservation"/>
         <activity android:name=".ProductUpdateActivity" />
+        <activity android:name=".TableActivity" />
         <activity
             android:name=".CustomerOrderViewActivity"
             android:label="Order Details" />
         <activity
             android:name=".ViewMyOrderActivity"
             android:label="Order History" />
+        <activity android:name=".ReservationMenuActivity" android:label="Reservation"/>
         <activity android:name=".OrderPlaceActivity" />
         <activity android:name=".ProductViewCustomerActivity" />
         <activity android:name=".ProductCViewActivity" />

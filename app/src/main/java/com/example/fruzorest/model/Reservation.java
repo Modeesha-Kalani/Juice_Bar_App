@@ -111,4 +111,3 @@ public class Reservation {
         this.reservfor = reservfor;
     }
 }
-

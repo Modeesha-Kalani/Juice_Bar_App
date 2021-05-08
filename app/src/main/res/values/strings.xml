@@ -26,7 +26,7 @@
     <string name="viewadmins">VIEW ADMINS</string>
     <string name="addmenu">ADD MENU</string>
     <string name="viewmenu">VIEW MENU</string>
-    <string name="ordernew">ORDER NOW</string>
+    <string name="ordernew">ORDER NEW</string>
     <string name="orderhistory">ORDER HISTORY</string>
     <string name="adminregistration">ADMIN REGISTRATION</string>
     <string name="nic">NIC</string>
@@ -72,7 +72,7 @@
     <string name="qtydetail">Quantity Details</string>
     <string name="total">Total</string>
     <string name="pickuptime">Pickup Time</string>
-    <string name="favourit">Favourite</string>
+    <string name="favourit">Favourit</string>
     <string name="updateproduct">Update Product</string>
     <string name="mostpopular">Most Popular</string>
     <string name="table01">Table 01</string>
@@ -94,10 +94,4 @@
     <string name="thereservation">The Reservation</string>
     <string name="yesy">Yes</string>
     <string name="non">No</string>
-    <string-array name="reservationRor">
-        <item>Birthday Party</item>
-        <item>Anniversary</item>
-        <item>A Date</item>
-        <item>Other</item>
-    </string-array>
 </resources>

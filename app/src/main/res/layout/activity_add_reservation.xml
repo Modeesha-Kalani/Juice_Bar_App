@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/fruitsback"
     android:padding="16dp"
     tools:context=".AddReservationActivity">
 
@@ -25,7 +24,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/when"
                 android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
@@ -43,7 +42,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/atwhattime"
                 android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
@@ -61,7 +60,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/timeexpected"
                 android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
@@ -79,14 +78,15 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/reservfor"
                 android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/reservfor"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:ems="10" />
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView56"
@@ -95,7 +95,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/contact"
                 android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
@@ -110,7 +110,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#EC477F"
                 android:onClick="makeReservation"
                 android:text="@string/makereserv" />
         </LinearLayout>
