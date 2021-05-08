@@ -9,9 +9,12 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -33,6 +36,8 @@ public class AddReservationActivity extends AppCompatActivity {
     private EditText datetext, timetext, durationtext, reservfor, contact;
     private int tid;
     private SimpleDateFormat sdf;
+    private Spinner spinner;
+    private String restype = "Standard Reservation";
 
     @VisibleForTesting
     public ProgressDialog mProgressDialog;
@@ -62,10 +67,27 @@ public class AddReservationActivity extends AppCompatActivity {
         durationtext = findViewById(R.id.durationtext);
         reservfor = findViewById(R.id.reservfor);
         contact = findViewById(R.id.contactfor);
+        spinner = findViewById(R.id.addtype_spinner);
+
         Intent intent = getIntent();
         sdf = new SimpleDateFormat("yyy-MM-dd");
 
         tid = intent.getIntExtra("tableid", 0);
+        ArrayAdapter<CharSequence> fromResource = ArrayAdapter.createFromResource(this, R.array.reserv_types, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(fromResource);
+        AdapterView.OnItemSelectedListener listner = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                restype = (String) parent.getItemAtPosition(position);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+        spinner.setOnItemSelectedListener(listner);
 
     }
 
@@ -95,6 +117,7 @@ public class AddReservationActivity extends AppCompatActivity {
         reserv.setReservfor(reservfor.getText().toString());
         reserv.setUserid(Util.currentuser.getUsername());
         reserv.setStatus("Active");
+        reserv.setReservationtype(restype);
         reserv.setReservationdate(sdf.format(new Date()));
         reserv.setTableid(tid);
 

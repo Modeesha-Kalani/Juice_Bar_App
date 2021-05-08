@@ -30,8 +30,11 @@ public class ViewMyOrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_my_order);
         recycler = findViewById(R.id.myorderrecycler);
         manager = new LinearLayoutManager(getApplicationContext());
+        ((LinearLayoutManager) manager).setReverseLayout(true);
+        ((LinearLayoutManager) manager).setStackFromEnd(true);
         recycler.setLayoutManager(manager);
         recycler.setHasFixedSize(true);
+
 
         loadMyOrders();
     }

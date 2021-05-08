@@ -11,42 +11,50 @@
     android:paddingRight="25dp"
     tools:context=".AdminMenuActivity">
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@drawable/menubtn"
+        android:textColor="@color/white"
         android:onClick="addAdmin"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/addadmins" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:onClick="viewAdmins"
+        android:background="@drawable/menubtn"
+        android:textColor="@color/white"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/viewadmins" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:onClick="addMenu"
+        android:background="@drawable/menubtn"
+        android:textColor="@color/white"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/addmenu" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:onClick="viewMenu"
+        android:background="@drawable/menubtn"
+        android:textColor="@color/white"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/viewmenu" />

@@ -114,8 +114,8 @@ public class ViewProductsAdminActivity extends AppCompatActivity {
                 Product value = snapshot.getValue(Product.class);
                 temp = value;
                 name.setText(value.getName());
-                regprice.setText(value.getReg_price() + "");
-                largeprice.setText(value.getLarge_price() + "");
+                regprice.setText("Rs."+value.getReg_price() + "");
+                largeprice.setText("Rs."+value.getLarge_price() + "");
                 ingredients.setText(value.getIngredients());
                 StorageReference products1 = FirebaseStorage.getInstance().getReference("products").child(value.getId());
                 products1.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

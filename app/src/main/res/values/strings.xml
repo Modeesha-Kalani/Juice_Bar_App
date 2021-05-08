@@ -94,4 +94,15 @@
     <string name="thereservation">The Reservation</string>
     <string name="yesy">Yes</string>
     <string name="non">No</string>
+    <string name="channel_name">orderchanel</string>
+    <string name="channel_description">order chanel</string>
+    <string name="reservationtype">Reservation Type</string>
+    <string-array name="reserv_types">
+        <item>Standard Reservation</item>
+        <item>Business</item>
+        <item>Birthday Party</item>
+        <item>Anniversary</item>
+        <item>A Date</item>
+        <item>Other</item>
+    </string-array>
 </resources>

@@ -136,14 +136,17 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/button10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:background="@drawable/updatebtn"
+                android:onClick="goToEditInfo"
                 android:text="@string/editinfo"
                 android:textAllCaps="true"
-                android:onClick="goToEditInfo"/>
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

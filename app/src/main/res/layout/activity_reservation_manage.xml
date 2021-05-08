@@ -24,19 +24,26 @@
         android:orientation="vertical"
         android:paddingBottom="20dp">
 
-        <Button
+        <android.widget.Button
+            android:background="@drawable/updatebtn"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
             android:id="@+id/button24"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="updateReservation"
             android:text="@string/updatereservation" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/button23"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/deletebtn"
             android:onClick="cancelReservation"
-            android:text="@string/cancelreservation" />
+            android:text="@string/cancelreservation"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>

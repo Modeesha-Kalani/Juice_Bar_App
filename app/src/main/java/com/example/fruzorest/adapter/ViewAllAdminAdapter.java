@@ -1,4 +1,3 @@
-
 package com.example.fruzorest.adapter;
 
 import android.app.AlertDialog;
@@ -72,11 +71,6 @@ public class ViewAllAdminAdapter extends RecyclerView.Adapter implements View.On
                                 voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        DatabaseReference child2 = FirebaseDatabase.getInstance()
-                                                .getReference("user")
-                                                .child("admin")
-                                                .child(list.get(tag).getUser().getUsername());
-                                        child2.removeValue();
                                         Toast.makeText(context, "User Account Deleted",
                                                 Toast.LENGTH_SHORT).show();
                                     }
@@ -118,4 +112,3 @@ public class ViewAllAdminAdapter extends RecyclerView.Adapter implements View.On
         return list.size();
     }
 }
-
