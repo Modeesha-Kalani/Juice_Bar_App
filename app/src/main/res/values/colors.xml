@@ -14,5 +14,10 @@
     <color name="pink">#FF90DD</color>
     <color name="redishpink">#FF85A3</color>
     <color name="transparent">#0000</color>
-    <color name="grayfont">#7f8c8d</color>
+    <color name="sunflower">#f1c40f</color>
+    <color name="greensea">#16a085</color>
+    <color name="midnightblue">#2c3e50</color>
+    <color name="alizarin">#e74c3c</color>
+    <color name="carrot">#e67e22</color>
+    <color name="grayfont">#bdc3c7</color>
 </resources>

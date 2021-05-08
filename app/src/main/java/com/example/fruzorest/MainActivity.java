@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.example.fruzorest.model.User;
+import com.example.fruzorest.model.Util;
 import com.google.firebase.FirebaseApiNotAvailableException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     User value = snapshot.getValue(User.class);
                     if (value != null) {
                         if (value.getPassword().equals(pass.getText().toString())) {
+                            Util.currentuser = value;
                             if (value.getUserlevel() == 1 || value.getUserlevel() == 2) {
                                 startActivity(new Intent(getApplicationContext(), AdminHome.class));
                                 finish();

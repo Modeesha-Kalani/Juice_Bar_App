@@ -1,10 +1,12 @@
 package com.example.fruzorest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -27,6 +29,26 @@ public class AdminViewActivity extends AppCompatActivity {
     private RecyclerView recycler;
     private RecyclerView.LayoutManager manager;
 
+    @VisibleForTesting
+    public ProgressDialog mProgressDialog;
+
+    public void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+    }
+
+    public void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(AdminViewActivity.this);
+            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +61,12 @@ public class AdminViewActivity extends AppCompatActivity {
 
 
     private void loadAdmins() {
+        showProgressDialog();
         ArrayList<UserInfo> infolist = new ArrayList<>();
         // if (Util.isOnline(getApplicationContext())) {
         if (true) {
-            System.out.println("cad");
             FirebaseDatabase instance = FirebaseDatabase.getInstance();
-            DatabaseReference child = instance.getReference("user").child("allusers");
+            DatabaseReference child = instance.getReference("user").child("admin");
             StorageReference child1 = FirebaseStorage.getInstance().getReference("user").child("profilepic");
             child.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -67,6 +89,7 @@ public class AdminViewActivity extends AppCompatActivity {
                         });
                         infolist.add(info);
                     }
+                    hideProgressDialog();
                     ViewAllAdminAdapter adapter = new ViewAllAdminAdapter(infolist);
                     recycler.setAdapter(adapter);
                     recycler.setHasFixedSize(true);

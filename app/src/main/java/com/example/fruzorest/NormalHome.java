@@ -15,6 +15,11 @@ public class NormalHome extends AppCompatActivity {
     }
 
     public void viewProductHome(View view) {
-        startActivity(new Intent(this,ProductHomeActivity.class));
+        startActivity(new Intent(this, ProductHomeActivity.class));
     }
+
+    public void goToOrderHistory(View view) {
+        startActivity(new Intent(this, ViewMyOrderActivity.class));
+    }
+
 }
