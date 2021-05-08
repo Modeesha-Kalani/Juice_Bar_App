@@ -9,13 +9,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -32,13 +28,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddReservationActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddReservationActivity extends AppCompatActivity {
 
-    private EditText datetext, timetext, durationtext, contact;
+    private EditText datetext, timetext, durationtext, reservfor, contact;
     private int tid;
     private SimpleDateFormat sdf;
-    private Spinner reservfor;
-    private String reserveFOR;
 
     @VisibleForTesting
     public ProgressDialog mProgressDialog;
@@ -67,10 +61,6 @@ public class AddReservationActivity extends AppCompatActivity implements Adapter
         timetext = findViewById(R.id.timetext);
         durationtext = findViewById(R.id.durationtext);
         reservfor = findViewById(R.id.reservfor);
-        //spinner
-        ArrayAdapter<CharSequence> Rfor = ArrayAdapter.createFromResource(this,R.array.reservationRor, android.R.layout.simple_spinner_item);
-        Rfor.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        reservfor.setAdapter(Rfor);
         contact = findViewById(R.id.contactfor);
         Intent intent = getIntent();
         sdf = new SimpleDateFormat("yyy-MM-dd");
@@ -101,8 +91,8 @@ public class AddReservationActivity extends AppCompatActivity implements Adapter
         reserv.setDate(datetext.getText().toString());
         reserv.setTime(timetext.getText().toString());
         reserv.setDuration(durationtext.getText().toString());
-        reserv.setReservfor(reserveFOR);
         reserv.setContact(contact.getText().toString());
+        reserv.setReservfor(reservfor.getText().toString());
         reserv.setUserid(Util.currentuser.getUsername());
         reserv.setStatus("Active");
         reserv.setReservationdate(sdf.format(new Date()));
@@ -133,18 +123,5 @@ public class AddReservationActivity extends AppCompatActivity implements Adapter
         });
 
 
-    }
-
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if(parent.getId() == R.id.reservfor){
-            reserveFOR =  parent.getItemAtPosition(position).toString();
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        reserveFOR = "Other";
     }
 }

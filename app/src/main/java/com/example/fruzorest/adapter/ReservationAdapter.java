@@ -62,6 +62,6 @@ public class ReservationAdapter extends RecyclerView.Adapter implements View.OnC
         Intent i = new Intent(context, ReservationManageActivity.class);
         i.putExtra("reservid",list.get(tag).getId());
         context.startActivity(i);
-
+        
     }
 }

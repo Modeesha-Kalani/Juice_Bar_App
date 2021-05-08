@@ -49,7 +49,6 @@ public class ViewMyOrderActivity extends AppCompatActivity {
                 }
                 OrderCAdapter adapter = new OrderCAdapter(olist);
                 recycler.setAdapter(adapter);
-
             }
 
             @Override

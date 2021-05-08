@@ -122,6 +122,10 @@ public class OrderPlaceActivity extends AppCompatActivity {
         });
     }
 
+  /*  public int testCal(int x, int y){
+        return (x*y);
+    } */
+
     public void minRegQty(View view) {
         if (rqty != 0) {
             rqty--;
@@ -158,7 +162,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
     }
 
     public void makeOrder(View view) {
-showProgressDialog();
+        showProgressDialog();
         Order o = new Order();
         o.setPid(pid);
         o.setPtype(type);

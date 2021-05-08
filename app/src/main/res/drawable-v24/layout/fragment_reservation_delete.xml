@@ -26,12 +26,12 @@
 
                 <ImageView
                     android:id="@+id/rdf_img"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
-                    app:srcCompat="@drawable/tables"
-                    tools:srcCompat="@drawable/tables" />
+                    android:src="@drawable/bgimg"
+                    app:srcCompat="@drawable/tables" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:text="@android:string/cancel"
                 android:textAlignment="center"
-                android:textColor="@color/alizarin"
+                android:textColor="@color/wetasphalt"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
