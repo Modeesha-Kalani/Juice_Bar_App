@@ -22,4 +22,7 @@ public class NormalHome extends AppCompatActivity {
         startActivity(new Intent(this, ViewMyOrderActivity.class));
     }
 
+    public void goToReservations(View view) {
+        startActivity(new Intent(this, ReservationMenuActivity.class));
+    }
 }
