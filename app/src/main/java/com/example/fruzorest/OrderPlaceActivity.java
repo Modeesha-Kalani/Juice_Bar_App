@@ -1,9 +1,11 @@
 package com.example.fruzorest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -48,6 +50,25 @@ public class OrderPlaceActivity extends AppCompatActivity {
     private SimpleDateFormat sdf;
     private AlertDialog.Builder builder;
     private Product p;
+
+    @VisibleForTesting
+    public ProgressDialog mProgressDialog;
+
+    public void hideProgressDialog() {
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            mProgressDialog.dismiss();
+        }
+    }
+
+    public void showProgressDialog() {
+        if (mProgressDialog == null) {
+            mProgressDialog = new ProgressDialog(OrderPlaceActivity.this);
+            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setIndeterminate(true);
+        }
+
+        mProgressDialog.show();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,7 +158,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
     }
 
     public void makeOrder(View view) {
-
+        showProgressDialog();
         Order o = new Order();
         o.setPid(pid);
         o.setPtype(type);
@@ -167,6 +188,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
                 voidTask1.addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
+                        hideProgressDialog();
                         builder = new AlertDialog.Builder(OrderPlaceActivity.this);
                         builder.setMessage("")
                                 .setCancelable(false)
@@ -188,6 +210,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
                         alert.show();
                     }
                 });
+                hideProgressDialog();
             }
         });
 

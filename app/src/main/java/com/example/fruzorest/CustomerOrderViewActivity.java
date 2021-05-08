@@ -86,6 +86,8 @@ public class CustomerOrderViewActivity extends AppCompatActivity {
                                     public void onSuccess(Void aVoid) {
                                         Toast.makeText(getApplicationContext(), "Order Canceled",
                                                 Toast.LENGTH_SHORT).show();
+                                        onBackPressed();
+                                        finish();
                                     }
                                 });
 
@@ -102,7 +104,7 @@ public class CustomerOrderViewActivity extends AppCompatActivity {
         //Creating dialog box
         AlertDialog alert = builder.create();
         //Setting the title manually
-        alert.setTitle("Delete Account");
+        alert.setTitle("Cancel Order");
         alert.show();
     }
 }
