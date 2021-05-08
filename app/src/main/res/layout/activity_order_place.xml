@@ -118,10 +118,10 @@
 
                     <Button
                         android:id="@+id/decrease"
-                        android:layout_width="48dp"
+                        android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:onClick="minRegQty"
-                        android:text="-" />
+                        android:text="-"
+                        android:onClick="minRegQty"/>
 
                     <TextView
                         android:id="@+id/integer_number"
@@ -223,9 +223,9 @@
                 android:id="@+id/button15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="makeOrder"
                 android:text="@string/placeorder"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="makeOrder"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -158,7 +158,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
     }
 
     public void makeOrder(View view) {
-        showProgressDialog();
+showProgressDialog();
         Order o = new Order();
         o.setPid(pid);
         o.setPtype(type);

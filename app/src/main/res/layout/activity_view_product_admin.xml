@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ViewProductAdminActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,6 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
+            android:onClick="loadJuice"
             android:padding="5dp"
             app:cardCornerRadius="4dp">
 
@@ -32,7 +34,7 @@
                     android:id="@+id/vpa_img1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    app:srcCompat="@drawable/juice" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -52,6 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:layout_weight="1"
+            android:onClick="loadSalad"
             android:padding="5dp"
             app:cardCornerRadius="4dp">
 
@@ -67,7 +70,7 @@
                     android:id="@+id/vpa_img2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    app:srcCompat="@drawable/salad" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -88,7 +91,8 @@
             android:layout_margin="2dp"
             android:layout_weight="1"
             android:padding="5dp"
-            app:cardCornerRadius="4dp">
+            app:cardCornerRadius="4dp"
+            android:onClick="loadSmoothie">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -102,7 +106,7 @@
                     android:id="@+id/vpa_img3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    app:srcCompat="@drawable/smoothi" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -120,6 +124,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/pa_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

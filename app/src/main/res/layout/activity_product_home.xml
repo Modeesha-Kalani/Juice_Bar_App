@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@drawable/bg3"
     android:orientation="vertical"
     android:padding="10dp"
     tools:context=".ProductHomeActivity">
@@ -18,6 +18,7 @@
         android:fontFamily="@font/lobster"
         android:text="@string/thirsty"
         android:textAlignment="center"
+        android:textColor="@color/redishpink"
         android:textSize="24sp" />
 
     <TextView
@@ -25,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/neosons"
-        android:text="@string/category" />
+        android:text="@string/category"
+        android:textColor="@color/wetasphalt" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +56,7 @@
                     android:id="@+id/phome_img1"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    app:srcCompat="@drawable/juice" />
 
                 <TextView
                     android:id="@+id/textView10"
@@ -91,7 +93,7 @@
                     android:id="@+id/phome_img2"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    app:srcCompat="@drawable/salad" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -128,7 +130,8 @@
                     android:id="@+id/phome_img3"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+                    app:srcCompat="@drawable/smoothi"
+                    tools:srcCompat="@drawable/smoothi" />
 
                 <TextView
                     android:id="@+id/textView12"
@@ -145,4 +148,23 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/lobster"
+        android:text="@string/mostpopular"
+        android:textAlignment="center"
+        android:textColor="@color/redishpink"
+        android:textSize="24sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fav_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
 </LinearLayout>

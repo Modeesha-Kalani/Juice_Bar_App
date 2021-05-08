@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingLeft="25dp"
@@ -15,14 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/adminmenu"
-        android:onClick="goToAdminMenu"/>
+        android:onClick="goToAdminMenu"
+        android:text="@string/adminmenu" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="@string/customerhome"
-        android:onClick="goToCustomerHome"/>
+        android:onClick="goToCustomerHome"
+        android:text="@string/customerhome" />
 </LinearLayout>

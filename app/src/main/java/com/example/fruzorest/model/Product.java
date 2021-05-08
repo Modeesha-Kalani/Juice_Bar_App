@@ -8,6 +8,7 @@ public class Product {
     private double large_price;
     private String type;
 
+
     public Product() {
     }
 

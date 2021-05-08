@@ -72,4 +72,26 @@
     <string name="qtydetail">Quantity Details</string>
     <string name="total">Total</string>
     <string name="pickuptime">Pickup Time</string>
+    <string name="favourit">Favourit</string>
+    <string name="updateproduct">Update Product</string>
+    <string name="mostpopular">Most Popular</string>
+    <string name="table01">Table 01</string>
+    <string name="table02">Table 02</string>
+    <string name="table03">Table 03</string>
+    <string name="table04">Table 04</string>
+    <string name="table05">Table 05</string>
+    <string name="table06">Table 06</string>
+    <string name="when">When ?</string>
+    <string name="atwhattime">"At What Time ? "</string>
+    <string name="timeexpected">Time Expected to leave</string>
+    <string name="reservfor">Reservation For</string>
+    <string name="contact">Contact Details</string>
+    <string name="makereserv">Make Reservation</string>
+    <string name="reserdate">Reservation Date</string>
+    <string name="updatereservation">Update Reservation</string>
+    <string name="cancelreservation">Cancel Reservation</string>
+    <string name="areyousure">Are You Sure want to</string>
+    <string name="thereservation">The Reservation</string>
+    <string name="yesy">Yes</string>
+    <string name="non">No</string>
 </resources>

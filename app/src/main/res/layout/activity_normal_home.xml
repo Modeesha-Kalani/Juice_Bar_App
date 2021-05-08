@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg1"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingLeft="25dp"
@@ -23,13 +24,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="@string/orderhistory"
-        android:onClick="goToOrderHistory"/>
+        android:onClick="goToOrderHistory"
+        android:text="@string/orderhistory" />
 
     <Button
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:onClick="goToReservations"
         android:text="@string/reservetable" />
 </LinearLayout>

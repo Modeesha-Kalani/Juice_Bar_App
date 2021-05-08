@@ -73,5 +73,10 @@ public class ProductViewCustomerActivity extends AppCompatActivity {
 
     }
 
-    
+    public void goToOrderNow(View view) {
+        Intent i = new Intent(this, OrderPlaceActivity.class);
+        i.putExtra("pid", productid);
+        i.putExtra("type", ptype);
+        startActivity(i);
+    }
 }

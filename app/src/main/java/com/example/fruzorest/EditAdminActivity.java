@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.fruzorest.model.User;
 import com.example.fruzorest.model.Util;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,7 +40,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class EditAdminActivity extends AppCompatActivity {
-    private EditText fname, lname, nic, email, phone, password,role;
+    private EditText fname, lname, nic, email, phone, password, role;
     private TextView uname;
     private ImageView profilepick;
 
@@ -91,6 +93,21 @@ public class EditAdminActivity extends AppCompatActivity {
                 role.setText(value.getRole());
 
 
+                StorageReference child = FirebaseStorage.getInstance()
+                        .getReference("user")
+                        .child("profilepic")
+                        .child(value.getUsername());
+                Task<Uri> downloadUrl = child.getDownloadUrl();
+                downloadUrl.addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        profilepick.setImageURI(null);
+                        Glide.with(getApplicationContext())
+                                .load(uri).apply(RequestOptions.circleCropTransform()).into(profilepick);
+                    }
+                });
+
+
             }
 
             @Override
@@ -119,7 +136,7 @@ public class EditAdminActivity extends AppCompatActivity {
         voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
-                if(imgselect){
+                if (imgselect) {
                     FirebaseStorage instance = FirebaseStorage.getInstance();
                     StorageReference child = instance.getReference("user").child("profilepic").child(user.getUsername());
                     child.putStream(tempuri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -127,17 +144,17 @@ public class EditAdminActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                             hideProgressDialog();
                             Snackbar snackbar = Snackbar
-                                    .make(getCurrentFocus(), "New  Account Created Success !", Snackbar.LENGTH_LONG);
+                                    .make(getCurrentFocus(), "User  Account Update Success !", Snackbar.LENGTH_LONG);
                             snackbar.show();
                         }
                     });
 
+
+                } else {
                     hideProgressDialog();
                     Snackbar snackbar = Snackbar
                             .make(getCurrentFocus(), "User Account Update Success !", Snackbar.LENGTH_LONG);
                     snackbar.show();
-                }else{
-
                 }
 
             }
@@ -145,14 +162,14 @@ public class EditAdminActivity extends AppCompatActivity {
     }
 
     public void selectImage(View view) {
-        imgselect = true;
+
         PickImageDialog.build(new PickSetup()).setOnPickResult(new IPickResult() {
             @Override
             public void onPickResult(PickResult r) {
                 System.out.println("image selected");
                 profilepick.setImageURI(null);
                 profilepick.setImageURI(r.getUri());
-
+                imgselect = true;
                 try {
                     tempuri = getApplicationContext().getContentResolver().openInputStream(r.getUri());
                 } catch (FileNotFoundException e) {

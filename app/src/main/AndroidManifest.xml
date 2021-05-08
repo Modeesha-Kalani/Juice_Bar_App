@@ -17,20 +17,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FruzoRest">
-        <activity android:name=".CustomerOrderViewActivity" />
-        <activity android:name=".ViewMyOrderActivity" />
+        <activity android:name=".ProductUpdateActivity" />
+        <activity
+            android:name=".CustomerOrderViewActivity"
+            android:label="Order Details" />
+        <activity
+            android:name=".ViewMyOrderActivity"
+            android:label="Order History" />
         <activity android:name=".OrderPlaceActivity" />
         <activity android:name=".ProductViewCustomerActivity" />
         <activity android:name=".ProductCViewActivity" />
         <activity android:name=".ViewProductAdminActivity" />
-        <activity android:name=".EditProductActivity" />
         <activity android:name=".ViewProductsAdminActivity" />
-        <activity android:name=".AddProductActivity" />
+        <activity
+            android:name=".AddProductActivity"
+            android:label="Add Product" />
         <activity android:name=".ProductHomeActivity" />
         <activity android:name=".AdminDetailActivity" />
         <activity android:name=".EditAdminActivity" />
         <activity android:name=".AdminViewActivity" />
-        <activity android:name=".AddAdminActivity" />
+        <activity
+            android:name=".AddAdminActivity"
+            android:label="Add Admin Account" />
         <activity android:name=".AdminMenuActivity" />
         <activity
             android:name=".NewUserActivity"

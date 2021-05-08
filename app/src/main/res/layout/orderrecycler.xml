@@ -28,7 +28,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/orderdetail"
                 android:textColor="@color/wetasphalt"
-                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <LinearLayout

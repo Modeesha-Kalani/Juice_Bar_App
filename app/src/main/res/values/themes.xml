@@ -13,4 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="DatepickerDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!--&lt;!&ndash; Used for the buttons &ndash;&gt;-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <!--&lt;!&ndash;<item name="android:textColorPrimary">@color/wetasphalt</item>&ndash;&gt;-->
+        <!--<item name="android:textColorSecondary">@color/carrot</item>-->
+        <!--<item name="android:titleTextAppearance">@style/titleback</item>-->
+        <!--<item name="android:textAppearanceMedium">@color/sunflower</item>-->
+        <!-- Used for the title and text -->
+    </style>
 </resources>
