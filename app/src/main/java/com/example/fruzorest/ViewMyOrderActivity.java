@@ -40,15 +40,15 @@ public class ViewMyOrderActivity extends AppCompatActivity {
     }
 
     private void loadMyOrders() {
-        ArrayList<Order> olist = new ArrayList<>();
-        DatabaseReference child = FirebaseDatabase.getInstance().getReference("order").child("userorder").child(Util.currentuser.getUsername());
-        child.addListenerForSingleValueEvent(new ValueEventListener() {
+        ArrayList<Order> olist = new ArrayList<>(); //to load order list
+        DatabaseReference child = FirebaseDatabase.getInstance().getReference("order").child("userorder").child(Util.currentuser.getUsername()); //database path
+        child.addListenerForSingleValueEvent(new ValueEventListener() { //read data for one time only. it happens if we use addListnerForSingleValueOnly
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Iterable<DataSnapshot> children = snapshot.getChildren();
-                for (DataSnapshot snapshot1 : children) {
+                for (DataSnapshot snapshot1 : children) { // read iterable collection
                     Order value = snapshot1.getValue(Order.class);
-                    olist.add(value);
+                    olist.add(value); //add orders to orderlist
                 }
                 OrderCAdapter adapter = new OrderCAdapter(olist);
                 recycler.setAdapter(adapter);

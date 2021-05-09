@@ -107,9 +107,9 @@ public class OrderPlaceActivity extends AppCompatActivity {
                 Product value = snapshot.getValue(Product.class);
                 p = value;
                 pname.setText(value.getName());
-                regprice.setText("Rs."+value.getReg_price() + "");
+                regprice.setText("Rs." + value.getReg_price() + "");
                 rprice = value.getReg_price();
-                largeprice.setText("Rs."+value.getLarge_price() + "");
+                largeprice.setText("Rs." + value.getLarge_price() + "");
                 lprice = value.getLarge_price();
                 ingredients.setText(value.getIngredients());
                 StorageReference products1 = FirebaseStorage.getInstance().getReference("products").child(value.getId());
@@ -176,64 +176,78 @@ public class OrderPlaceActivity extends AppCompatActivity {
 
 
     public void makeOrder(View view) {
-        showProgressDialog();
-        Order o = new Order();
-        o.setPid(pid);
-        o.setPtype(type);
-        o.setRqty(rqty);
-        o.setLqty(larqty);
-        o.setTotal(tot);
-        o.setRprice(rprice);
-        o.setLprice(lprice);
-        o.setStatus(0);
-        o.setPname(p.getName());
-        o.setUserid(Util.currentuser.getUsername());
-        o.setDate(sdf.format(new Date()));
-        int hour = timepicker.getHour();
-        int minute = timepicker.getMinute();
-        o.setHour(hour);
-        o.setMinuts(minute);
-
-        DatabaseReference order = FirebaseDatabase.getInstance().getReference("order");
-        DatabaseReference allorder = order.child("allorder").push();
-        o.setId(allorder.getKey());
-        Task<Void> voidTask = allorder.setValue(o);
-        voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                DatabaseReference userorder = order.child("userorder").child(o.getUserid()).child(o.getId());
-                Task<Void> voidTask1 = userorder.setValue(o);
-                voidTask1.addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        hideProgressDialog();
-                        showNotification(o);
-                        builder = new AlertDialog.Builder(OrderPlaceActivity.this);
-                        builder.setMessage("")
-                                .setCancelable(false)
-                                .setPositiveButton("Close", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        onBackPressed();
-                                    }
-                                })
-                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        //  Action for 'NO' Button
-                                        dialog.cancel();
-                                    }
-                                });
-                        //Creating dialog box
-                        AlertDialog alert = builder.create();
-                        //Setting the title manually
-                        alert.setTitle("New Order Placed Success ");
-                        alert.show();
-                    }
-                });
-                hideProgressDialog();
-            }
-        });
+        if (tot != 0) {
 
 
+            showProgressDialog();
+            Order o = new Order();
+            o.setPid(pid);
+            o.setPtype(type);
+            o.setRqty(rqty);
+            o.setLqty(larqty);
+            o.setTotal(tot);
+            o.setRprice(rprice);
+            o.setLprice(lprice);
+            o.setStatus(0);
+            o.setPname(p.getName());
+            o.setUserid(Util.currentuser.getUsername());
+            o.setDate(sdf.format(new Date()));
+            int hour = timepicker.getHour();
+            int minute = timepicker.getMinute();
+            o.setHour(hour);
+            o.setMinuts(minute);
+
+            DatabaseReference order = FirebaseDatabase.getInstance().getReference("order");
+            DatabaseReference allorder = order.child("allorder").push();
+            o.setId(allorder.getKey());
+            Task<Void> voidTask = allorder.setValue(o);
+            voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    DatabaseReference userorder = order.child("userorder").child(o.getUserid()).child(o.getId());
+                    Task<Void> voidTask1 = userorder.setValue(o);
+                    voidTask1.addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            hideProgressDialog();
+                            showNotification(o);
+                            builder = new AlertDialog.Builder(OrderPlaceActivity.this);
+                            builder.setMessage("")
+                                    .setCancelable(false)
+                                    .setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            onBackPressed();
+                                        }
+                                    })
+                                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            //  Action for 'NO' Button
+                                            dialog.cancel();
+                                        }
+                                    });
+                            //Creating dialog box
+                            AlertDialog alert = builder.create();
+                            //Setting the title manually
+                            alert.setTitle("New Order Placed Success ");
+                            alert.show();
+                        }
+                    });
+                    hideProgressDialog();
+                }
+            });
+
+        } else {
+            androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(OrderPlaceActivity.this, R.style.Theme_AppCompat_Dialog_MinWidth);
+            builder.setTitle("Cannot Place the Order");
+            builder.setMessage("Atleast Order One Product !").setCancelable(false);
+            builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                }
+            }).setIcon(R.drawable.ic_baseline_error_outline_24);
+            builder.create().show();
+        }
     }
 
     public void showNotification(Order o) {
