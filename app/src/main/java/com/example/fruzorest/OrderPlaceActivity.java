@@ -160,7 +160,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
         total.setText(v + "");
     }
 
-    private double updateTot(double rprice, int rqty, double lprice, int larqty) {
+    public double updateTot(double rprice, int rqty, double lprice, int larqty) {
         double rtot = rprice * rqty;
         double ltot = lprice * larqty;
         tot = rtot + ltot;
