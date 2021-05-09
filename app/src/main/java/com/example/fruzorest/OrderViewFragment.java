@@ -73,8 +73,8 @@ public class OrderViewFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Order value = snapshot.getValue(Order.class);
                 pname.setText(value.getPname());
-                rqty.setText(value.getRprice()+" X "+value.getRqty());
-                lqty.setText(value.getLprice()+" X "+value.getLqty());
+                rqty.setText("Rs."+value.getRprice()+" X "+value.getRqty());
+                lqty.setText("Rs."+value.getLprice()+" X "+value.getLqty());
                 total.setText(value.getTotal()+"");
                 String timex = "";
                 if(value.getHour()>12){

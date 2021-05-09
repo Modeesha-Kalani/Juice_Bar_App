@@ -107,9 +107,9 @@ public class OrderPlaceActivity extends AppCompatActivity {
                 Product value = snapshot.getValue(Product.class);
                 p = value;
                 pname.setText(value.getName());
-                regprice.setText(value.getReg_price() + "");
+                regprice.setText("Rs."+value.getReg_price() + "");
                 rprice = value.getReg_price();
-                largeprice.setText(value.getLarge_price() + "");
+                largeprice.setText("Rs."+value.getLarge_price() + "");
                 lprice = value.getLarge_price();
                 ingredients.setText(value.getIngredients());
                 StorageReference products1 = FirebaseStorage.getInstance().getReference("products").child(value.getId());
@@ -133,13 +133,15 @@ public class OrderPlaceActivity extends AppCompatActivity {
             rqty--;
         }
         regqty.setText(rqty + "");
-        updateTot();
+        double v = updateTot(rprice, rqty, lprice, larqty);
+        total.setText(v + "");
     }
 
     public void maxRegQty(View view) {
         rqty++;
         regqty.setText(rqty + "");
-        updateTot();
+        double v = updateTot(rprice, rqty, lprice, larqty);
+        total.setText(v + "");
     }
 
     public void minLQty(View view) {
@@ -147,21 +149,31 @@ public class OrderPlaceActivity extends AppCompatActivity {
             larqty--;
         }
         largeqty.setText(larqty + "");
-        updateTot();
+        double v = updateTot(rprice, rqty, lprice, larqty);
+        total.setText(v + "");
     }
 
     public void maxLQty(View view) {
         larqty++;
         largeqty.setText(larqty + "");
-        updateTot();
+        double v = updateTot(rprice, rqty, lprice, larqty);
+        total.setText(v + "");
     }
 
-    private void updateTot() {
+    private double updateTot(double rprice, int rqty, double lprice, int larqty) {
         double rtot = rprice * rqty;
         double ltot = lprice * larqty;
         tot = rtot + ltot;
-        total.setText(tot + "");
+        return tot;
+
     }
+//    private void updateTot() {
+//        double rtot = rprice * rqty;
+//        double ltot = lprice * larqty;
+//        tot = rtot + ltot;
+//        total.setText(tot + "");
+//    }
+
 
     public void makeOrder(View view) {
         showProgressDialog();
@@ -241,7 +253,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(this, 0, intent, 0);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "orderplaced")
-                .setSmallIcon(R.drawable.ic_launcher_background)
+                .setSmallIcon(R.drawable.ic_baseline_favorite_24)
                 .setContentTitle("New Order Placed")
                 .setContentText(o.getPname() + " \n" + o.getTotal())
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)

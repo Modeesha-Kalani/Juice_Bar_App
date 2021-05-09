@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="toolbarStyle">@style/Base_ToolbarStyle</item>
+        <item name="alertDialogStyle">@style/AlertDialogCustom</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="DatepickerDialogCustom" parent="Theme.AppCompat.DayNight.Dialog.Alert">
@@ -27,11 +28,11 @@
     </style>
     <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
         <!-- Used for the buttons -->
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/alizarin</item>
         <!-- Used for the title and text -->
         <item name="android:textColorPrimary">@color/midnightblue</item>
         <!-- Used for the background -->
-        <item name="android:background">@color/white</item>
+        <item name="android:background">@color/grayfont</item>
     </style>
 
     <style name="DatePickerButtonStyle" parent="Base.Widget.AppCompat.Button.Borderless">
