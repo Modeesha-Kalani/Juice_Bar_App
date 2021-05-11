@@ -14,11 +14,12 @@ public class Reservation {
     private String contact;
     private String reservfor;
     private int tableid;
+    private String reservationtype;
 
     public Reservation() {
     }
 
-    public Reservation(String id, String time, String date, String duration, String reservationdate, String userid, String status, String contact, String reservfor, int tableid) {
+    public Reservation(String id, String time, String date, String duration, String reservationdate, String userid, String status, String contact, String reservfor, int tableid, String reservationtype) {
         this.id = id;
         this.time = time;
         this.date = date;
@@ -29,6 +30,7 @@ public class Reservation {
         this.contact = contact;
         this.reservfor = reservfor;
         this.tableid = tableid;
+        this.reservationtype = reservationtype;
     }
 
     public int getTableid() {
@@ -110,5 +112,12 @@ public class Reservation {
     public void setReservfor(String reservfor) {
         this.reservfor = reservfor;
     }
-}
 
+    public String getReservationtype() {
+        return reservationtype;
+    }
+
+    public void setReservationtype(String reservationtype) {
+        this.reservationtype = reservationtype;
+    }
+}

@@ -11,7 +11,10 @@
     android:paddingRight="80dp"
     tools:context=".ReservationMenuActivity">
 
-    <Button
+    <android.widget.Button
+        android:background="@drawable/menubtn"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
         android:id="@+id/button16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,9 +27,12 @@
         android:text="@string/newreservation"
         android:textSize="24sp" />
 
-    <Button
+    <android.widget.Button
+        android:background="@drawable/menubtn"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
         android:id="@+id/button17"
-        android:layout_width="286dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:onClick="goToViewReservation"

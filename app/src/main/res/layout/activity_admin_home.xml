@@ -11,19 +11,25 @@
     android:paddingRight="25dp"
     tools:context=".AdminHome">
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="@drawable/menubtn"
         android:onClick="goToAdminMenu"
-        android:text="@string/adminmenu" />
+        android:text="@string/adminmenu"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="@drawable/menubtn"
         android:onClick="goToCustomerHome"
-        android:text="@string/customerhome" />
+        android:text="@string/customerhome"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
 </LinearLayout>

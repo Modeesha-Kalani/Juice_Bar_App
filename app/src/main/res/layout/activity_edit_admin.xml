@@ -210,15 +210,18 @@
                 android:hint="@string/password"
                 android:inputType="textPassword" />
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/button11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
+                android:background="@drawable/updatebtn"
                 android:onClick="updateInfo"
                 android:text="@string/updateinfo"
-                android:textAllCaps="true" />
+                android:textAllCaps="true"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

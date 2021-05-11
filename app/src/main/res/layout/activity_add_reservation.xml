@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/fruitsback"
     android:padding="16dp"
     tools:context=".AddReservationActivity">
 
@@ -16,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView52"
@@ -24,8 +23,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/when"
-                android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textColor="@color/midnightblue"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
@@ -42,8 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/atwhattime"
-                android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textColor="@color/midnightblue"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
@@ -60,8 +59,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/timeexpected"
-                android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textColor="@color/midnightblue"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
@@ -78,15 +77,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/reservfor"
-                android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textColor="@color/midnightblue"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
-            <Spinner
+            <EditText
                 android:id="@+id/reservfor"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:ems="10" />
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView56"
@@ -94,8 +94,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/contact"
-                android:textColor="@color/redishpink"
-                android:textSize="18sp"
+                android:textColor="@color/midnightblue"
+                android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
             <EditText
@@ -105,14 +105,32 @@
                 android:ems="10"
                 android:inputType="phone" />
 
-            <Button
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/reservationtype"
+                android:textColor="@color/midnightblue"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/addtype_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp" />
+
+            <android.widget.Button
                 android:id="@+id/button22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="#EC477F"
+                android:background="@drawable/addbtn"
                 android:onClick="makeReservation"
-                android:text="@string/makereserv" />
+                android:text="@string/makereserv"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 

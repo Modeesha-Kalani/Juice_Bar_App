@@ -52,8 +52,8 @@ public class OrderCAdapter extends RecyclerView.Adapter implements View.OnClickL
         Order order = list.get(position);
         viewHolder.setTag(position);
         viewHolder.setTotal(order.getTotal()+"");
-        viewHolder.setRegdetail(order.getRprice()+ " X " +order.getRqty());
-        viewHolder.setLargdetail(order.getLprice()+ " X " +order.getLqty());
+        viewHolder.setRegdetail("Rs."+order.getRprice()+ " X " +order.getRqty());
+        viewHolder.setLargdetail("Rs."+order.getLprice()+ " X " +order.getLqty());
         viewHolder.setpName(order.getPname());
 
     }

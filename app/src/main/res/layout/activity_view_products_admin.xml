@@ -102,7 +102,10 @@
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
 
-                <Button
+                <android.widget.Button
+                    android:background="@drawable/menubtn"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
                     android:id="@+id/button18"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -110,7 +113,10 @@
                     android:onClick="addToFav"
                     android:text="@string/favourit" />
 
-                <Button
+                <android.widget.Button
+                    android:background="@drawable/updatebtn"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
                     android:id="@+id/button12"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +126,10 @@
                     android:onClick="updateProduct"
                     android:text="@string/update" />
 
-                <Button
+                <android.widget.Button
+                    android:background="@drawable/deletebtn"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold"
                     android:id="@+id/button13"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

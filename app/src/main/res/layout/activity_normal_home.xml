@@ -11,27 +11,36 @@
     android:paddingRight="25dp"
     tools:context=".NormalHome">
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@drawable/menubtn"
         android:onClick="viewProductHome"
-        android:text="@string/orderjuice" />
+        android:text="@string/orderjuice"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button21"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@drawable/menubtn"
         android:onClick="goToOrderHistory"
-        android:text="@string/orderhistory" />
+        android:text="@string/orderhistory"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/button8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:background="@drawable/menubtn"
         android:onClick="goToReservations"
-        android:text="@string/reservetable" />
+        android:text="@string/reservetable"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
 </LinearLayout>

@@ -60,7 +60,7 @@ public class ReservationDeleteFragment extends Fragment {
         deletebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deleteReservation();
+deleteReservation();
             }
         });
         loadValues();

@@ -137,8 +137,8 @@ public class UpdateOrderFragment extends Fragment {
                 Order value = snapshot.getValue(Order.class);
                 o = value;
                 pname.setText(value.getPname());
-                rqty.setText("" + value.getRqty());
-                lqty.setText("" + value.getLqty());
+                rqty.setText("Rs." + value.getRqty());
+                lqty.setText("Rs." + value.getLqty());
                 total.setText(value.getTotal() + "");
                 rprice.setText(value.getRprice() + "");
                 lprice.setText(value.getLprice() + "");
@@ -161,34 +161,48 @@ public class UpdateOrderFragment extends Fragment {
         updatelistner = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                o.setRqty(rqtyof);
-                o.setLqty(larqtyof);
-                o.setTotal(tot);
-                o.setRprice(rpriceof);
-                o.setLprice(lpriceof);
-                int hour = timepicker.getHour();
-                int minute = timepicker.getMinute();
-                o.setHour(hour);
-                o.setMinuts(minute);
+                if(tot != 0) {
 
-                DatabaseReference order = FirebaseDatabase.getInstance().getReference("order");
-                DatabaseReference allorder = order.child("allorder").child(o.getId());
+                    o.setRqty(rqtyof);
+                    o.setLqty(larqtyof);
+                    o.setTotal(tot);
+                    o.setRprice(rpriceof);
+                    o.setLprice(lpriceof);
+                    int hour = timepicker.getHour();
+                    int minute = timepicker.getMinute();
+                    o.setHour(hour);
+                    o.setMinuts(minute);
 
-                Task<Void> voidTask = allorder.setValue(o);
-                voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        DatabaseReference userorder = order.child("userorder").child(o.getUserid()).child(o.getId());
-                        Task<Void> voidTask1 = userorder.setValue(o);
-                        voidTask1.addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                Toast.makeText(getContext(), "Order Updated", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                });
+                    DatabaseReference order = FirebaseDatabase.getInstance().getReference("order");
+                    DatabaseReference allorder = order.child("allorder").child(o.getId());
 
+                    Task<Void> voidTask = allorder.setValue(o);
+                    voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            DatabaseReference userorder = order.child("userorder").child(o.getUserid()).child(o.getId());
+                            Task<Void> voidTask1 = userorder.setValue(o);
+                            voidTask1.addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(getContext(), "Order Updated", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(getActivity(), R.style.Theme_AppCompat_Dialog_MinWidth);
+                    builder.setTitle("Cannot Place the Order");
+                    builder.setMessage("Atleast Order One Product !").setCancelable(false);
+                    builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).setIcon(R.drawable.ic_baseline_error_outline_24);
+                    builder.create().show();
+
+                }
 
             }
         };

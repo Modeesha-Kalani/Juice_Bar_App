@@ -3,23 +3,88 @@
     <style name="Theme.FruzoRest" parent="Theme.MaterialComponents.DayNight">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/pink</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/deeppink</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/alizarin</item>
+        <item name="colorSecondaryVariant">@color/pomagrant</item>
+        <item name="colorOnSecondary">@color/white</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="toolbarStyle">@style/Base_ToolbarStyle</item>
+        <item name="alertDialogStyle">@style/AlertDialogCustom</item>
         <!-- Customize your theme here. -->
     </style>
-    <style name="DatepickerDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <!--&lt;!&ndash; Used for the buttons &ndash;&gt;-->
-        <!--<item name="colorAccent">@color/colorAccent</item>-->
-        <!--&lt;!&ndash;<item name="android:textColorPrimary">@color/wetasphalt</item>&ndash;&gt;-->
-        <!--<item name="android:textColorSecondary">@color/carrot</item>-->
-        <!--<item name="android:titleTextAppearance">@style/titleback</item>-->
-        <!--<item name="android:textAppearanceMedium">@color/sunflower</item>-->
+    <style name="DatepickerDialogCustom" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/wetasphalt</item>
+        <item name="android:textColorPrimary">@color/wetasphalt</item>
+        <item name="android:textColorSecondary">@color/carrot</item>
+<!--        <item name="android:titleTextAppearance">@style/titleback</item>-->
+        <item name="android:textAppearanceMedium">@color/sunflower</item>
+        <item name="android:buttonBarPositiveButtonStyle">@style/DatePickerButtonStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">@style/DatePickerButtonStyle</item>
         <!-- Used for the title and text -->
     </style>
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">@color/alizarin</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/midnightblue</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/grayfont</item>
+    </style>
+
+    <style name="DatePickerButtonStyle" parent="Base.Widget.AppCompat.Button.Borderless">
+        <item name="android:textColor">@color/wetasphalt</item>
+        <item name="android:backgroundTint">@color/white</item>
+    </style>
+    <style name="windowtitlestyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ToolbarTheme" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:fontFamily">@font/lobster</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColor">@color/wetasphalt</item>
+        <item name="android:textColorPrimaryInverse">@color/white</item>
+        <item name="android:actionModeBackground">@color/white</item>
+        <item name="android:colorControlNormal">@color/white</item>
+        <item name="android:tint">@color/white</item>
+        <item name="android:actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
+
+    </style>
+
+    <style name="MyOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/white</item>
+    </style>
+    <style name="Base_ToolbarStyle">
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:background">@color/hotpink</item>
+        <item name="android:theme">@style/Base_ToolbarTheme</item>
+        <item name="titleTextAppearance">@style/CustomTitleTextAppearance</item>
+        <item name="subtitleTextAppearance">@style/CustomSubTitleTextAppearance</item>
+    </style>
+
+    <style name="Base_ToolbarTheme">
+        <!-- Color used for the title of the Toolbar - as long as not overridden -->
+        <item name="android:textColorPrimary">@color/white</item>
+        <!-- Used to color back button and three dots -->
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="CustomTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">Lobster</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CustomSubTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:fontFamily">Lobster</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
 </resources>

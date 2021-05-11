@@ -55,7 +55,7 @@ public class ProductHomeActivity extends AppCompatActivity {
 
     public void viewSmoothis(View view) {
         Intent i = new Intent(this, ProductCViewActivity.class);
-        i.putExtra("type", "smoothie");
+        i.putExtra("type", "smoothi");
         startActivity(i);
     }
 

@@ -120,8 +120,8 @@
                         android:id="@+id/decrease"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="-"
-                        android:onClick="minRegQty"/>
+                        android:onClick="minRegQty"
+                        android:text="-" />
 
                     <TextView
                         android:id="@+id/integer_number"
@@ -140,8 +140,8 @@
                         android:id="@+id/increase"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="+"
-                        android:onClick="maxRegQty"/>
+                        android:onClick="maxRegQty"
+                        android:text="+" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -180,8 +180,8 @@
                         android:id="@+id/decrease2"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="-"
-                        android:onClick="minLQty"/>
+                        android:onClick="minLQty"
+                        android:text="-" />
 
                     <TextView
                         android:id="@+id/integer_number2"
@@ -200,8 +200,8 @@
                         android:id="@+id/increase2"
                         android:layout_width="50dp"
                         android:layout_height="wrap_content"
-                        android:text="+"
-                        android:onClick="maxLQty"/>
+                        android:onClick="maxLQty"
+                        android:text="+" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -217,15 +217,17 @@
                 android:id="@+id/timePicker1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:timePickerMode="spinner"/>
+                android:timePickerMode="spinner" />
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/button15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/addbtn"
+                android:onClick="makeOrder"
                 android:text="@string/placeorder"
-                android:textStyle="bold"
-                android:onClick="makeOrder"/>
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

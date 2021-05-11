@@ -92,12 +92,25 @@
                     android:ems="10"
                     android:inputType="phone" />
 
-                <Button
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/reservationtype"
+                    android:textColor="@color/redishpink"
+                    android:textSize="14sp"
+                    android:textStyle="bold|italic" />
+
+                <android.widget.Button
                     android:id="@+id/button022"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="@string/updatereservation" />
+                    android:background="@drawable/updatebtn"
+                    android:paddingStart="50dp"
+                    android:paddingEnd="50dp"
+                    android:text="@string/updatereservation"
+                    android:textColor="@color/colorAccent" />
             </LinearLayout>
         </ScrollView>
     </androidx.cardview.widget.CardView>

@@ -89,8 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -162,13 +161,16 @@
                 android:gravity="start|top"
                 android:inputType="textMultiLine" />
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/button7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/addbtn"
+                android:onClick="addProduct"
                 android:text="@string/addproduct"
-                android:onClick="addProduct"/>
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

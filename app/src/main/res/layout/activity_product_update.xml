@@ -44,7 +44,7 @@
                 android:id="@+id/up_radiogroup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -122,13 +122,16 @@
                 android:gravity="start|top"
                 android:inputType="textMultiLine" />
 
-            <Button
+            <android.widget.Button
                 android:id="@+id/button30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/updatebtn"
                 android:onClick="updateProduct"
-                android:text="@string/updateproduct" />
+                android:text="@string/updateproduct"
+                android:textColor="@color/colorAccent"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>
