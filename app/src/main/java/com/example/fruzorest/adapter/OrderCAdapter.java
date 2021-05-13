@@ -24,7 +24,7 @@ public class OrderCAdapter extends RecyclerView.Adapter implements View.OnClickL
 
     //constructor
     public OrderCAdapter(ArrayList<Order> list) {
-        this.list = list;
+        this.list = list; //get data to an array list
     }
 
     //override abstract classes
@@ -41,16 +41,23 @@ public class OrderCAdapter extends RecyclerView.Adapter implements View.OnClickL
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //get context object
         context = parent.getContext();
+        //get layout file with the returned file
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.orderrecycler, parent, false);
         inflate.setOnClickListener(this);
+
+        //pass view to the viewHolder class
         return new OrderViewHolder(inflate);
     }
 
     @Override
+    //set the data to viewHolder
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         OrderViewHolder viewHolder = (OrderViewHolder) holder;
         viewHolder.setContext(context);
+
+        //pass position
         Order order = list.get(position);
         viewHolder.setTag(position);
         viewHolder.setTotal(order.getTotal()+"");
@@ -62,6 +69,6 @@ public class OrderCAdapter extends RecyclerView.Adapter implements View.OnClickL
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return list.size(); // get the array size
     }
 }
