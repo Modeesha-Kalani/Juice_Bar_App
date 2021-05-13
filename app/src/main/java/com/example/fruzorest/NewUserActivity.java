@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 
@@ -18,6 +19,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.regex.Pattern;
 
 public class NewUserActivity extends AppCompatActivity {
 
@@ -70,41 +73,56 @@ public class NewUserActivity extends AppCompatActivity {
             builder.create().show();
 
         } else {
-            if (password.getText().toString().equals(repassword.getText().toString())) {
-                User user = new User();
-                user.setEmail(email.getText().toString());
-                user.setMobile(mobile.getText().toString());
-                user.setUsername(uname.getText().toString());
-                user.setFirstname("");
-                user.setLastname("");
-                user.setNic("");
-                user.setPassword(password.getText().toString());
-                user.setStatus(1);
-                user.setRole("Customer");
-                user.setUserlevel(3);
+            if (Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches() && mobile.getText().toString().length()==10) {
+                if (password.getText().toString().equals(repassword.getText().toString())) {
+                    User user = new User();
+                    user.setEmail(email.getText().toString());
+                    user.setMobile(mobile.getText().toString());
+                    user.setUsername(uname.getText().toString());
+                    user.setFirstname("");
+                    user.setLastname("");
+                    user.setNic("");
+                    user.setPassword(password.getText().toString());
+                    user.setStatus(1);
+                    user.setRole("Customer");
+                    user.setUserlevel(3);
 
 
-                DatabaseReference userref = firebase.getReference("user");
-                DatabaseReference allusers = userref.child("allusers").child(user.getUsername());
+                    DatabaseReference userref = firebase.getReference("user");
+                    DatabaseReference allusers = userref.child("allusers").child(user.getUsername());
 
-                Task<Void> push = allusers.setValue(user);
-                push.addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        hideProgressDialog();
-                        Snackbar snackbar = Snackbar
-                                .make(getCurrentFocus(), "New User Account Created Success !", Snackbar.LENGTH_LONG);
-                        snackbar.show();
-                        Util.currentuser = user;
-                        startActivity(new Intent(getApplicationContext(), NormalHome.class));
-                    }
+                    Task<Void> push = allusers.setValue(user);
+                    push.addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            hideProgressDialog();
+                            Snackbar snackbar = Snackbar
+                                    .make(getCurrentFocus(), "New User Account Created Success !", Snackbar.LENGTH_LONG);
+                            snackbar.show();
+                            Util.currentuser = user;
+                            startActivity(new Intent(getApplicationContext(), NormalHome.class));
+                        }
 
 
-                });
+                    });
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(NewUserActivity.this, R.style.Theme_AppCompat_Dialog_MinWidth);
+                    builder.setTitle("Cannot Create User Account");
+                    builder.setMessage("Password doesn't match").setCancelable(false);
+                    builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                            hideProgressDialog();
+                        }
+                    }).setIcon(R.drawable.ic_baseline_error_outline_24);
+                    builder.create().show();
+
+                }
             } else {
                 AlertDialog.Builder builder = new AlertDialog.Builder(NewUserActivity.this, R.style.Theme_AppCompat_Dialog_MinWidth);
                 builder.setTitle("Cannot Create User Account");
-                builder.setMessage("Password doesn't match").setCancelable(false);
+                builder.setMessage("Invalid Email Address ! Or Phone Number !").setCancelable(false);
                 builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -113,7 +131,6 @@ public class NewUserActivity extends AppCompatActivity {
                     }
                 }).setIcon(R.drawable.ic_baseline_error_outline_24);
                 builder.create().show();
-
             }
         }
     }

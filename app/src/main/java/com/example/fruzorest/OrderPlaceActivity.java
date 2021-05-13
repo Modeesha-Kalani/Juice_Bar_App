@@ -98,7 +98,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
         loadData(pid, type);
 
     }
-
+            // load data from the database
     private void loadData(String pid, String type) {
         DatabaseReference products = FirebaseDatabase.getInstance().getReference("products").child(type).child(pid);
         products.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -128,6 +128,7 @@ public class OrderPlaceActivity extends AppCompatActivity {
         });
     }
 
+    // clculation part
     public void minRegQty(View view) {
         if (rqty != 0) {
             rqty--;
