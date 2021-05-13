@@ -1,11 +1,13 @@
 package com.example.fruzorest;
 
 import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +22,7 @@ import android.widget.TimePicker;
 
 import com.example.fruzorest.model.Reservation;
 import com.example.fruzorest.model.Util;
+import com.example.fruzorest.util.GFG;
 import com.example.fruzorest.util.TimePickerDialog;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -108,43 +111,70 @@ public class AddReservationActivity extends AppCompatActivity {
     }
 
     public void makeReservation(View view) {
-        showProgressDialog();
-        Reservation reserv = new Reservation();
-        reserv.setDate(datetext.getText().toString());
-        reserv.setTime(timetext.getText().toString());
-        reserv.setDuration(durationtext.getText().toString());
-        reserv.setContact(contact.getText().toString());
-        reserv.setReservfor(reservfor.getText().toString());
-        reserv.setUserid(Util.currentuser.getUsername());
-        reserv.setStatus("Active");
-        reserv.setReservationtype(restype);
-        reserv.setReservationdate(sdf.format(new Date()));
-        reserv.setTableid(tid);
+        if (contact.getText().toString().length() == 10) {
+            if (Integer.parseInt(GFG.findDifference(timetext.getText().toString(), durationtext.getText().toString())) > 0) {
+
+                showProgressDialog();
+                Reservation reserv = new Reservation();
+                reserv.setDate(datetext.getText().toString());
+                reserv.setTime(timetext.getText().toString());
+                reserv.setDuration(durationtext.getText().toString());
+                reserv.setContact(contact.getText().toString());
+                reserv.setReservfor(reservfor.getText().toString());
+                reserv.setUserid(Util.currentuser.getUsername());
+                reserv.setStatus("Active");
+                reserv.setReservationtype(restype);
+                reserv.setReservationdate(sdf.format(new Date()));
+                reserv.setTableid(tid);
 
 
-        DatabaseReference child = FirebaseDatabase.getInstance().getReference("reservation");
-        DatabaseReference all = child.child("all").push();
-        reserv.setId(all.getKey());
-        Task<Void> voidTask = all.setValue(reserv);
-        voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                DatabaseReference child1 = child.child("user").child(reserv.getUserid()).child(reserv.getId());
-                child1.setValue(reserv).addOnSuccessListener(new OnSuccessListener<Void>() {
+                DatabaseReference child = FirebaseDatabase.getInstance().getReference("reservation");
+                DatabaseReference all = child.child("all").push();
+                reserv.setId(all.getKey());
+                Task<Void> voidTask = all.setValue(reserv);
+                voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        hideProgressDialog();
-                        Snackbar snackbar = Snackbar
-                                .make(getCurrentFocus(), "New  Reservation added Success !", Snackbar.LENGTH_LONG);
-                        snackbar.show();
-                        startActivity(new Intent(getApplicationContext(), ReservationDoneActivity.class));
-                        finish();
+                        DatabaseReference child1 = child.child("user").child(reserv.getUserid()).child(reserv.getId());
+                        child1.setValue(reserv).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                hideProgressDialog();
+                                Snackbar snackbar = Snackbar
+                                        .make(getCurrentFocus(), "New  Reservation added Success !", Snackbar.LENGTH_LONG);
+                                snackbar.show();
+                                startActivity(new Intent(getApplicationContext(), ReservationDoneActivity.class));
+                                finish();
 
+                            }
+                        });
                     }
                 });
+            }else{
+                AlertDialog.Builder builder = new AlertDialog.Builder(AddReservationActivity.this, R.style.Theme_AppCompat_Dialog_MinWidth);
+                builder.setTitle("Leaving Time Error");
+                builder.setMessage("Please set Valid Leaving Time").setCancelable(false);
+                builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        hideProgressDialog();
+                    }
+                }).setIcon(R.drawable.ic_baseline_error_outline_24);
+                builder.create().show();
             }
-        });
-
-
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddReservationActivity.this, R.style.Theme_AppCompat_Dialog_MinWidth);
+            builder.setTitle("Contact number Error Error");
+            builder.setMessage("Please Add Valid Telephone number").setCancelable(false);
+            builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    hideProgressDialog();
+                }
+            }).setIcon(R.drawable.ic_baseline_error_outline_24);
+            builder.create().show();
+        }
     }
 }
