@@ -112,6 +112,7 @@ public class AddProductActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     public void hideProgressDialog() {
