@@ -57,7 +57,7 @@ public class ViewReservationActivity extends AppCompatActivity {
             }
         });
     }
-//myyyyyyyy
+
     @Override
     protected void onResume() {
         super.onResume();
