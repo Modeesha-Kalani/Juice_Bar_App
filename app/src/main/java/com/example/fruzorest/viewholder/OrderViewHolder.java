@@ -19,9 +19,9 @@ public class OrderViewHolder extends RecyclerView.ViewHolder {
     public Context context;
 
 
-    public OrderViewHolder(@NonNull View itemView) {
+    public OrderViewHolder(@NonNull View itemView) { //pass orderRecycler layout to itemView
         super(itemView);
-        root = itemView.findViewById(R.id.orderlinearlayout);
+        root = itemView.findViewById(R.id.orderlinearlayout); // pass the ids of layout file
         regdetail = itemView.findViewById(R.id.or_regdetail);
         largdetail = itemView.findViewById(R.id.or_largedetail);
         total = itemView.findViewById(R.id.or_total);
@@ -46,7 +46,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder {
 
     public int getTag() {
         return (int) root.getTag();
-    }
+    } // set the object number (order number)
 
     public void setContext(Context info) {
         this.context = info;

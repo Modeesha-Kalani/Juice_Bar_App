@@ -60,13 +60,14 @@
         android:ems="10"
         android:fontFamily="@font/neosons"
         android:hint="@string/username"
-        android:inputType="textPersonName"
         android:padding="15dp"
         android:text="@null"
         android:textAlignment="textStart"
         android:textColor="@color/wetasphalt"
         android:textColorHighlight="@color/teal_700"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+        android:inputType="textFilter"/>
 
     <EditText
         android:id="@+id/mobile_newuser"

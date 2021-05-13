@@ -137,11 +137,11 @@ public class UpdateOrderFragment extends Fragment {
                 Order value = snapshot.getValue(Order.class);
                 o = value;
                 pname.setText(value.getPname());
-                rqty.setText("Rs." + value.getRqty());
-                lqty.setText("Rs." + value.getLqty());
-                total.setText(value.getTotal() + "");
-                rprice.setText(value.getRprice() + "");
-                lprice.setText(value.getLprice() + "");
+                rqty.setText("" + value.getRqty());
+                lqty.setText("" + value.getLqty());
+                total.setText("Rs."+value.getTotal() + "");
+                rprice.setText("Rs."+value.getRprice() + "");
+                lprice.setText("Rs."+value.getLprice() + "");
                 timepicker.setHour(value.getHour());
                 timepicker.setMinute(value.getMinuts());
                 rpriceof = value.getRprice();

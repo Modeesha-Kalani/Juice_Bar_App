@@ -19,13 +19,15 @@ import com.example.fruzorest.viewholder.ProductViewHolder;
 import java.util.ArrayList;
 
 public class OrderCAdapter extends RecyclerView.Adapter implements View.OnClickListener {
-    ArrayList<Order>  list;
+    ArrayList<Order>  list; // to store order objects
     Context context;
 
+    //constructor
     public OrderCAdapter(ArrayList<Order> list) {
         this.list = list;
     }
 
+    //override abstract classes
     @Override
     public void onClick(View v) {
         LinearLayout root = v.findViewById(R.id.orderlinearlayout);

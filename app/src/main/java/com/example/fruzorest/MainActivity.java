@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                     User value = snapshot.getValue(User.class);
                     if (value != null) {
                         if (value.getPassword().equals(pass.getText().toString())) {
+
                             Util.currentuser = value;
                             if (value.getUserlevel() == 1 || value.getUserlevel() == 2) {
                                 startActivity(new Intent(getApplicationContext(), AdminHome.class));
@@ -132,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
     public void showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(MainActivity.this);
-            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setMessage("Log in .....");
             mProgressDialog.setIndeterminate(true);
         }
 

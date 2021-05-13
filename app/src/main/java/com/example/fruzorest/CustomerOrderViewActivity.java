@@ -54,11 +54,12 @@ public class CustomerOrderViewActivity extends AppCompatActivity {
 
 
     }
-
+    //calling update fragment
     public void goToUpdateOrder(View view) {
         loadFragment("update");
     }
 
+    //Delete Order
     public void deleteOrder(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(CustomerOrderViewActivity.this);
         builder.setMessage("Do You want to Cancel this Order ? ")

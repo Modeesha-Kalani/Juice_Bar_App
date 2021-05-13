@@ -21,7 +21,7 @@ import java.util.ArrayList;
 
 public class ViewMyOrderActivity extends AppCompatActivity {
     private RecyclerView recycler;
-    private RecyclerView.LayoutManager manager;
+    private RecyclerView.LayoutManager manager; //create an object from layout manager inner class
 
 
     @Override
@@ -40,15 +40,15 @@ public class ViewMyOrderActivity extends AppCompatActivity {
     }
 
     private void loadMyOrders() {
-        ArrayList<Order> olist = new ArrayList<>(); //to load order list
-        DatabaseReference child = FirebaseDatabase.getInstance().getReference("order").child("userorder").child(Util.currentuser.getUsername()); //database path
-        child.addListenerForSingleValueEvent(new ValueEventListener() { //read data for one time only. it happens if we use addListnerForSingleValueOnly
+        ArrayList<Order> olist = new ArrayList<>();
+        DatabaseReference child = FirebaseDatabase.getInstance().getReference("order").child("userorder").child(Util.currentuser.getUsername());
+        child.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Iterable<DataSnapshot> children = snapshot.getChildren();
-                for (DataSnapshot snapshot1 : children) { // read iterable collection
+                for (DataSnapshot snapshot1 : children) {
                     Order value = snapshot1.getValue(Order.class);
-                    olist.add(value); //add orders to orderlist
+                    olist.add(value);
                 }
                 OrderCAdapter adapter = new OrderCAdapter(olist);
                 recycler.setAdapter(adapter);
@@ -60,5 +60,11 @@ public class ViewMyOrderActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadMyOrders();
     }
 }
