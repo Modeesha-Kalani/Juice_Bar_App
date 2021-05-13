@@ -5,7 +5,7 @@ import android.net.Uri;
 
 public class ProductInfo {
     private Product product;
-    private Uri uri;
+    private Uri uri; //download images from firebase storage
 
     public ProductInfo() {
     }

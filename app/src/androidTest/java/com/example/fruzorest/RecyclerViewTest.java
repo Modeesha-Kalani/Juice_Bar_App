@@ -1,6 +1,7 @@
 package com.example.fruzorest;
 
 
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.Espresso;
 import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.action.ViewActions;
@@ -17,6 +18,9 @@ import org.junit.runner.RunWith;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class RecyclerViewTest {
+
+    private ViewProductAdminActivity viewProductAdminActivity;
+
 
     @Rule
     public ActivityTestRule<ViewProductAdminActivity> mActivityTestRule = new ActivityTestRule<ViewProductAdminActivity>(ViewProductAdminActivity.class);

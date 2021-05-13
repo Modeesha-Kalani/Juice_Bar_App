@@ -47,7 +47,7 @@ public class ProductCAdapter extends RecyclerView.Adapter implements View.OnClic
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ProductViewHolder viewholder = (ProductViewHolder) holder;
         viewholder.setContext(context);
-        viewholder.setImage(list.get(position).getUri());
+        viewholder.setImage(list.get(position).getUri());//number of the image
         viewholder.setName(list.get(position).getProduct().getName());
         viewholder.setPrice(list.get(position).getProduct().getReg_price()+"");
         viewholder.setTag(position);
@@ -57,5 +57,5 @@ public class ProductCAdapter extends RecyclerView.Adapter implements View.OnClic
     @Override
     public int getItemCount() {
         return list.size();
-    }
+    } //array size
 }

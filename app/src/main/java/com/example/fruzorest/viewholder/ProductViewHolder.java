@@ -30,12 +30,12 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
 
     public void setImage(Uri uri) {
         image.setImageURI(null);
-        Glide.with(context).load(uri).into(image);
+        Glide.with(context).load(uri).into(image); //library for set images
     }
 
     public void setName(String name) {
         this.pname.setText(name);
-    }
+    } //passing data
 
     public void setPrice(String price) {
         this.price.setText(price);
@@ -43,7 +43,7 @@ public class ProductViewHolder extends RecyclerView.ViewHolder {
 
     public void setTag(int i) {
         root.setTag(i);
-    }
+    } // current object
 
     public int getTag() {
         return (int) root.getTag();

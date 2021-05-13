@@ -91,4 +91,9 @@ public class ViewProductAdminActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadProducts("juice");
+    }
 }

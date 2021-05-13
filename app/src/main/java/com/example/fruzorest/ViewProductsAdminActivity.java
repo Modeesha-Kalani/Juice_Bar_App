@@ -67,11 +67,12 @@ public class ViewProductsAdminActivity extends AppCompatActivity {
                                 .getReference("products")
                                 .child(ptype)
                                 .child(productid);
-
                         Task<Void> voidTask = child.removeValue();
                         voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
+                                Toast.makeText(getApplicationContext(), "Product Deleted !",
+                                        Toast.LENGTH_LONG).show();
                                 StorageReference products = FirebaseStorage.getInstance().getReference("products").child(temp.getId());
                                 products.delete();
                                 DatabaseReference userorder = FirebaseDatabase.getInstance().getReference("products")
@@ -114,8 +115,8 @@ public class ViewProductsAdminActivity extends AppCompatActivity {
                 Product value = snapshot.getValue(Product.class);
                 temp = value;
                 name.setText(value.getName());
-                regprice.setText("Rs."+value.getReg_price() + "");
-                largeprice.setText("Rs."+value.getLarge_price() + "");
+                regprice.setText("Rs." + Util.formatDecimal(value.getReg_price()) + "");
+                largeprice.setText("Rs." + Util.formatDecimal(value.getLarge_price()) + "");
                 ingredients.setText(value.getIngredients());
                 StorageReference products1 = FirebaseStorage.getInstance().getReference("products").child(value.getId());
                 products1.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

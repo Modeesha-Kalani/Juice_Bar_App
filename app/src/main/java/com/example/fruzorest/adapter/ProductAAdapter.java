@@ -56,5 +56,5 @@ public class ProductAAdapter extends RecyclerView.Adapter implements View.OnClic
     @Override
     public int getItemCount() {
         return list.size();
-    }
+    } //array size
 }

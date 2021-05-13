@@ -2,9 +2,11 @@ package com.example.fruzorest;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -74,44 +76,58 @@ public class AddProductActivity extends AppCompatActivity {
 
 
     public void addProduct(View view) {
-        showProgressDialog();
-        int checkedRadioButtonId = radiogroup.getCheckedRadioButtonId();
-        String category = "";
-        if(checkedRadioButtonId == R.id.ap_rbsalad){
-            category="salad";
-        }else if(checkedRadioButtonId == R.id.ap_rbsmoothi){
-            category="smoothi";
-        }else{
-            category="juice";
-        }
+        if (pname.getText().toString().isEmpty() || largeprice.getText().toString().isEmpty() || regprice.getText().toString().isEmpty()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(AddProductActivity.this, R.style.Theme_AppCompat_Dialog_MinWidth);
+            builder.setTitle("Cannot Add Product");
+            builder.setMessage("Fill All textfields").setCancelable(false);
+            builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    hideProgressDialog();
+                }
+            }).setIcon(R.drawable.ic_baseline_error_outline_24);
+            builder.create().show();
 
-        Product p = new Product();
-        p.setName(pname.getText().toString());
-        p.setIngredients(ingredients.getText().toString());
-        p.setLarge_price(Double.parseDouble(largeprice.getText().toString()));
-        p.setReg_price(Double.parseDouble(regprice.getText().toString()));
-        p.setType(category);
-
-        DatabaseReference products = FirebaseDatabase.getInstance().getReference("products").child(category);
-        DatabaseReference push = products.push();
-        p.setId(push.getKey());
-        Task<Void> voidTask = push.setValue(p);
-        voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                StorageReference products1 = FirebaseStorage.getInstance().getReference("products").child(p.getId());
-                products1.putStream(tempuri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                        hideProgressDialog();
-                        Snackbar snackbar = Snackbar
-                                .make(getCurrentFocus(), "New  Product Added Success !", Snackbar.LENGTH_LONG);
-                        snackbar.show();
-                    }
-                });
+        } else {
+            showProgressDialog();
+            int checkedRadioButtonId = radiogroup.getCheckedRadioButtonId();
+            String category = "";
+            if (checkedRadioButtonId == R.id.ap_rbsalad) {
+                category = "salad";
+            } else if (checkedRadioButtonId == R.id.ap_rbsmoothi) {
+                category = "smoothi";
+            } else {
+                category = "juice";
             }
-        });
 
+            Product p = new Product();
+            p.setName(pname.getText().toString());
+            p.setIngredients(ingredients.getText().toString());
+            p.setLarge_price(Double.parseDouble(largeprice.getText().toString()));
+            p.setReg_price(Double.parseDouble(regprice.getText().toString()));
+            p.setType(category);
+
+            DatabaseReference products = FirebaseDatabase.getInstance().getReference("products").child(category);
+            DatabaseReference push = products.push();
+            p.setId(push.getKey());
+            Task<Void> voidTask = push.setValue(p);
+            voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    StorageReference products1 = FirebaseStorage.getInstance().getReference("products").child(p.getId());
+                    products1.putStream(tempuri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            hideProgressDialog();
+                            Snackbar snackbar = Snackbar
+                                    .make(getCurrentFocus(), "New  Product Added Success !", Snackbar.LENGTH_LONG);
+                            snackbar.show();
+                        }
+                    });
+                }
+            });
+        }
     }
 
     public void hideProgressDialog() {
@@ -123,7 +139,7 @@ public class AddProductActivity extends AppCompatActivity {
     public void showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(AddProductActivity.this);
-            mProgressDialog.setMessage(getString(R.string.loading));
+            mProgressDialog.setMessage("Saving Data....");
             mProgressDialog.setIndeterminate(true);
         }
 
