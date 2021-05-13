@@ -95,7 +95,7 @@ public class OrderViewFragment extends Fragment {
 
 
     }
-
+    // to load QR code
     private void loadQR(String id) {
         Bitmap bitmap = QRCode.from(id).bitmap();
         qrimg.setImageBitmap(bitmap);
