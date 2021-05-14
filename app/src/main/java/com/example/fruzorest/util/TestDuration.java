@@ -6,6 +6,7 @@ public class TestDuration {
         gfg = new GFG();
     }
 
+
     public void testDuration(){
 
         String duration1 = gfg.findDifference("18:30 pm","13.30 pm");
