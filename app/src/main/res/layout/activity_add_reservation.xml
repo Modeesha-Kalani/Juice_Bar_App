@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="@drawable/fruitsback"
     tools:context=".AddReservationActivity">
 
     <ScrollView
@@ -23,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/when"
-                android:textColor="@color/midnightblue"
+                android:textColor="@color/pink"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
@@ -41,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/atwhattime"
-                android:textColor="@color/midnightblue"
+                android:textColor="@color/pink"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
@@ -59,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/timeexpected"
-                android:textColor="@color/midnightblue"
+                android:textColor="@color/pink"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
@@ -77,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/reservfor"
-                android:textColor="@color/midnightblue"
+                android:textColor="@color/pink"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
@@ -94,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/contact"
-                android:textColor="@color/midnightblue"
+                android:textColor="@color/pink"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
 
@@ -110,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/reservationtype"
-                android:textColor="@color/midnightblue"
+                android:textColor="@color/pink"
                 android:textSize="14sp"
                 android:textStyle="bold|italic" />
 

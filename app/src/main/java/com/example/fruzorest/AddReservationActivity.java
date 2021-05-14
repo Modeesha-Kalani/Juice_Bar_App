@@ -165,7 +165,7 @@ public class AddReservationActivity extends AppCompatActivity {
             }
         }else{
             AlertDialog.Builder builder = new AlertDialog.Builder(AddReservationActivity.this, R.style.Theme_AppCompat_Dialog_MinWidth);
-            builder.setTitle("Contact number Error Error");
+            builder.setTitle("Contact number Error");
             builder.setMessage("Please Add Valid Telephone number").setCancelable(false);
             builder.setPositiveButton("Close", new DialogInterface.OnClickListener() {
                 @Override
