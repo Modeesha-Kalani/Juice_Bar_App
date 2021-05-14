@@ -67,6 +67,12 @@ public class OrderViewFragment extends Fragment {
         qrimg = getView().findViewById(R.id.ovf_qr);
         orderid = getView().findViewById(R.id.ovf_orderid);
         String orderidof = bundle.getString("orderid");
+
+        //firebase connection
+        /* flow of the database
+        * Firebase > order > all order - if you want to view all orders you can stop it here
+        *Firebase > order > all order > orderidof - if you want to view one of orders
+        */
         DatabaseReference child = FirebaseDatabase.getInstance().getReference("order").child("allorder").child(orderidof);
         child.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -77,13 +83,15 @@ public class OrderViewFragment extends Fragment {
                 lqty.setText("Rs."+value.getLprice()+" X "+value.getLqty());
                 total.setText(value.getTotal()+"");
                 String timex = "";
+
+                //to convert time into 12 hours
                 if(value.getHour()>12){
                     timex = (value.getHour()-12)+":"+value.getMinuts()+" PM";
                 }else{
                     timex = value.getHour()+":"+value.getMinuts()+" AM";
                 }
                 pickuptime.setText(timex);
-                orderid.setText(value.getId());
+                orderid.setText(value.getId()); //set the order id
                 loadQR(value.getId());
             }
 

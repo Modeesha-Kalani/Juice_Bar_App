@@ -63,7 +63,7 @@ public class ViewMyOrderActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    protected void onResume() { // to refresh the page
         super.onResume();
         loadMyOrders();
     }
