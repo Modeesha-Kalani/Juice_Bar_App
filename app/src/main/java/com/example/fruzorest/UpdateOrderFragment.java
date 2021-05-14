@@ -84,8 +84,8 @@ public class UpdateOrderFragment extends Fragment {
         linbtn = getView().findViewById(R.id.puincrease2);
         ldebtn = getView().findViewById(R.id.pudecrease2);
         updateorderbtn = getView().findViewById(R.id.updateorderbtn);
-        //set Listners to btns
-        rinlistner = new View.OnClickListener() {
+
+        rinlistner = new View.OnClickListener() { //set Listners to btns
             @Override
             public void onClick(View v) {
                 rqtyof++;
@@ -93,7 +93,7 @@ public class UpdateOrderFragment extends Fragment {
                 updateTot();
             }
         };
-        rinbtn.setOnClickListener(rinlistner);
+        rinbtn.setOnClickListener(rinlistner); //set onclick listner to button
 
         rdelistner = new View.OnClickListener() {
             @Override

@@ -103,6 +103,7 @@ public class ProductUpdateActivity extends AppCompatActivity {
     }
 
     public void updateProduct(View view) {
+
         showProgressDialog();
         Product p = tempproduct;
         p.setName(pname.getText().toString());

@@ -54,6 +54,8 @@ public class ViewProductsAdminActivity extends AppCompatActivity {
         i.putExtra("pid", productid);
         i.putExtra("ptype", ptype);
         startActivity(i);
+
+
     }
 
     public void deleteProduct(View view) {
@@ -92,18 +94,25 @@ public class ViewProductsAdminActivity extends AppCompatActivity {
                             }
                         });
                     }
+
                 })
+
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //  Action for 'NO' Button
                         dialog.cancel();
                     }
                 });
+
+
         //Creating dialog box
         AlertDialog alert = builder.create();
         //Setting the title manually
         alert.setTitle("Delete Product");
         alert.show();
+
+
+
     }
 
     private void loadProductDetails(String productid, String ptype) {
@@ -133,6 +142,12 @@ public class ViewProductsAdminActivity extends AppCompatActivity {
             }
         });
 
+
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadProductDetails(productid, ptype);
     }
 
     public void addToFav(View view) {
@@ -148,7 +163,8 @@ public class ViewProductsAdminActivity extends AppCompatActivity {
                         voidTask.addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-
+                                Toast.makeText(getApplicationContext(), "Product added most popular list !",
+                                        Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -167,4 +183,6 @@ public class ViewProductsAdminActivity extends AppCompatActivity {
 
 
     }
+
+
 }
